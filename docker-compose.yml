@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  android-emulator:
+    image: budtmo/docker-android:emulator_11.0
+    container_name: android-emulator
+    privileged: true
+    ports:
+      - "6080:6080" # VNC Web Interface
+      - "5554:5554" # ADB
+      - "5555:5555" # ADB
+    environment:
+      - EMULATOR_DEVICE=Samsung Galaxy S10
+      - WEB_VNC=true
+      - APPIUM=true
+      - RELAXED_SECURITY=true
+    volumes:
+      - ./apk_files:/root/tmp
+      - android-data:/root/.android
+    devices:
+      - /dev/kvm:/dev/kvm
+    cap_add:
+      - SYS_ADMIN
+    shm_size: 2g
+    restart: unless-stopped
+
+volumes:
+  android-data:

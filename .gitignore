@@ -1,0 +1,75 @@
+# Android
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Keystore files
+*.keystore
+*.jks
+*.p12
+*.pfx
+
+# Build files
+build/
+bin/
+gen/
+out/
+.gradle/
+local.properties
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+*~
+
+# Docker
+.docker/
+
+# Node modules (if any)
+node_modules/
+
+# Python (if any)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# APK signature files
+*.idsig
+
+# Decompiled APK folders
+*_decoded/
+*_fixed/

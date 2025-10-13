@@ -1,0 +1,25 @@
+﻿number	name	language_name	O2Nails	O2Nails G	O2Nails(无logo)	O2Nails(授权)	O2Nails GLOBAL	KMS	自主艺术	FullMate	R'tNails	Ai Beauty	炫指	涂甲	King Di Pont	美手主义	NailBox	珂洛丽彩指巧绘	TATANAILS	Colorful	玫瑰花开	iMNAIL	七彩女皇	TiBella	绮径
+690001	welcome_icon	启动页背景	o2n_welcome	o2n_welcome	o2n_welcome	o2n_welcome	o2n_welcome	kms_welcome	selfart_welcome	fullmate_welcome	rtnails_welcome	aibeauty_welcome	xzs_welcome	jxym_welcome	kdp_welcome	mszy_welcome	nailbox_welcome	colovy_welcome	tata_welcome	colorful_welcome	rose_welcome	imnail_welcome	mjg_welcome	tibella_welcome	colorpath_welcome
+690002	soid	app标识	com.o2nails.v11	com.o2nails.v11	com.o2nails.v11	com.o2nails.v11	com.global.v11	com.kms.v11	com.selfart.v11	com.fullmate.v11	com.rtnails.v11	com.aibeauty.v11	com.xzs.v11	com.jxym.v11	com.kdp.v11	com.mszy.v11	com.nailbox.v11	com.colovy.v11	com.tata.v11	com.colorful.v11	com.rose.v11	com.imnail.v11	com.mjg.v11	com.tibella.v11	com.colorpath.v11
+690003	soid_more	是否可以使用其他APP的机器	all	all	all	all	o2nails			o2nails						o2nails	o2nails		o2nails	o2nails,fullmate	o2nails	o2nails		o2nails	o2nails
+690004	isDesign	是否只显示款式	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1
+690005	Local_Zip_Pwd	本地解压密码	a091a69dc561a4f85f322334d1d105d6	a091a69dc561a4f85f322334d1d105d6	a091a69dc561a4f85f322334d1d105d6	a091a69dc561a4f85f322334d1d105d6	a091a69dc561a4f85f322334d1d105d6	2b5270b43f7dd4e8366dffd350a045e6	92a483d2f19fdd606efedf6df7793656	31f6fa88a0c3aafd30f088bcb74a6594	d35cabb29f60f24b0b6db9a2e3e71249	88424e43caf2af0ebcdf92aa2868bfcd	8947e6d9cb0b35ddefc4a30a7d4fc030	ba2d5cad629384f3957a7fba3bbfa6a1	a477bc7931db64e783a37641bedc2e25	20f80ffa3ab1e78d3f1d3ff2b3345a9c	b9713342b4db46941eb48a4b47dae224	1f80f91b84b19d4bd7689dff778c1dfc	31f6fa88a0c3aafd30f088bcb74a6595	a091a69dc561a4f85f322334d1d105d6	a091a69dc561a4f85f322334d1d105d6	a091a69dc561a4f85f322334d1d105d6	a091a69dc561a4f85f322334d1d105d6	a091a69dc561a4f85f322334d1d105d6	a091a69dc561a4f85f322334d1d105d6
+690006	administrator_pwd	管理者密码							12SELFART021					12JXYM021
+690007	SYLDVHC	新手入门数据下载标识	SYLDVHC_ONE	SYLDVHC_ONE	SYLDVHC_ONE	SYLDVHC_ONE	SYLDVHC_ONE_global			SYLDVHC_ONE_fullmate			SYLDVHC_ONE_xzs		SYLDVHC_ONE_kdp		SYLDVHC_NAILBOX	SYLDVHC_ONE_colovy	SYLDVHC_ONE_tata	SYLDVHC_ONE_colorful	SYLDVHC_ONE_rose	SYLDVHC_ONE_imnail	SYLDVHC_ONE_mjg	SYLDVHC_ONE_global	SYLDVHC_ONE_global
+690008	GET_CODE_TIME	短信等待时间	60	60	60	60	60	60	60	60	60	60	60	60	60	60	120	60	60	60	60	60	60	60	60
+690009	LANGUAGE	是否固定一种语言							cn		cn	cn	cn	cn	cn	cn		cn			cn		cn	cn	cn
+690010	OpenAutoPrint	打开自动识别功能	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1
+690011	isOpenAutoPrint	是否默认打开	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1
+690012	OpenAutomaticLocation	打开自动识别功能	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1
+690013	isOpenAutomaticLocation	是否默认打开	1	1	1	1	1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	1	1	1	1
+690014	OpenAutomaticSide	侧摄像头是否使用	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1
+690015	isOpenAutomaticSide	是否默认打开	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1
+690016	OpenPrintGuide	美甲彩绘引导	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1
+690017	isOpenPrintGuide	是否默认打开	1	1	1	1	1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	1	1	-1	1
+690018	isShowLogo	是否去Logo	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+690019	isPay	是否授权打印	0	0	0	1	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	1	1	0
+690020	homeADsize	首页广告大小与封面图	0,0,o2n_home_bg	0,0,o2n_home_bg	0,0,o2n_home_bg	0,0,o2n_home_bg	16,9,home_bg_global	0,0,home_bg_kms	16,10,home_bg_selfart	0,0,home_bg_colovy	16,9,home_bg_rtnails		16,9,home_bg_xzs	16,10,home_bg_jxym	17,11,home_bg_kdp	1,1,home_bg_mszy	11,10,home_bg_nailbox	0,0,home_bg_colovy	0,0,o2n_home_bg	0,0,home_bg_colovy	16,11,home_bg_rose	0,0,home_bg_imnail	16,11,home_bg_mjg	16,11,home_bg_tibella	16,11,home_bg_colorpath
+690021	homeLogoPosition	首页LOGO位置与logo	0,0,160,60,o2n_o2nail_logo	0,0,160,60,o2n_o2nail_logo	0,0,160,60,o2n_o2nail_logo	0,0,160,60,o2n_o2nail_logo	0,0,160,60,o2n_o2nail_logo		10,10,50,70,selfart_sele_logo	0,0,160,60,fullmate_o2nail_logo	10,10,120,60,rtnails_sele_logo		10,10,120,60,xzs_sele_logo	10,10,120,50,jxym_sele_logo	0,0,120,50,kdp_o2nail_logo				0,0,160,60,tata_sele_logo			0,0,200,60,imnail	0,0,120,60,logo_mjg	0,0,60,60,tibella_sele_logo	0,0,80,80,colorpath_sele_logo
+690022	homeModularType	首页模块类型	one	one	one	one	two	one	two	one	two		two	two	two	three	four	one	one	one	two	one	two	two	two
+690023	homeModularDate	首页模块数据	0,7,2,12,1,5	0,7,2,12,1,5	0,7,2,12,1	0,7,2,12,1	0,12,1	0,1,12	0,2,1	0,7,2,12,1	0,3,2		0,7,2,12,1	0,3,2	0,1,7,12,2	0,1,2,3	201,2,0,200	0,3	0,7,2,12,1	0,7,2,12,1	0,2,1,7,12	0,7,2,12,1	0,2,7,12	0,12	0,12
+690024	homeBottonType	首页底部样式	one	one	one	one	seven	two	three	two	four		two	two	two	two	five	two	two	six	two	two	three	two	threegun

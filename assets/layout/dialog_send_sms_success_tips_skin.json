@@ -1,0 +1,1 @@
+[{"background":"@drawable/solid_white_10dp","iD":"id_isnot_1650935529731"},{"iD":"@+id/title_tv","text":"发送成功","textColor":"@color/black"},{"iD":"@+id/tips_tv","text":"已发送邮件，前往邮箱完成密码修改","textColor":"@color/black"},{"background":"@color/grey_light","iD":"id_isnot_1650935529732","style":"@style/line_style_w"},{"iD":"@+id/done_tv","text":"我知道了","textColor":"@color/red_dark"}]

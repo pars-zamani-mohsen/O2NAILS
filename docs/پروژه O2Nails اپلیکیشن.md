@@ -93,6 +93,12 @@
 - سازگار با Android 6.0+ (API 23+)
 - پشتیبانی از ARM64 و ARMv7
 
----
 
-**این پرامپت آماده است. لطفاً تایید کنید تا شروع به کدنویسی کنم.**
+نحوه نصب اپلیکیشن روی شبیه ساز (داکر budtmo/docker-android:emulator_11.0)
+adb -s emulator-5554 install O2Nails.apk
+ بررسی نسخه اصلی قبلاً نصب شده
+adb -s emulator-5554 shell pm list packages | grep o2nails
+
+
+adb -s emulator-5554 shell pm uninstall com.o2nails.v11
+---

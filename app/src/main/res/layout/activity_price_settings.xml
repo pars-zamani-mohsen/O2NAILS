@@ -1,154 +1,202 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/main_background"
-    android:padding="@dimen/margin_medium">
+    android:background="@color/md_theme_light_background"
+    android:fillViewport="true">
 
-    <!-- Header -->
     <LinearLayout
-        android:id="@+id/headerLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:padding="@dimen/padding_medium">
-
-        <Button
-            android:id="@+id/backButton"
-            android:layout_width="80dp"
-            android:layout_height="60dp"
-            android:background="@drawable/button_admin_selector"
-            android:text="@string/back"
-            android:textColor="@color/white"
-            android:textSize="@dimen/medium_text_size"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/price_settings"
-            android:textColor="@color/primary_text"
-            android:textSize="@dimen/large_text_size"
-            android:textStyle="bold"
-            android:gravity="center" />
-
-        <View
-            android:layout_width="80dp"
-            android:layout_height="1dp" />
-
-    </LinearLayout>
-
-    <!-- Main Content -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/headerLayout"
-        android:layout_above="@id/bottomLayout"
         android:orientation="vertical"
-        android:gravity="center"
-        android:padding="@dimen/padding_large">
+        android:padding="@dimen/margin_medium">
 
-        <!-- Current Price Display -->
-        <TextView
-            android:id="@+id/currentPriceTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="قیمت فعلی: 5,000 تومان"
-            android:textColor="@color/primary_text"
-            android:textSize="@dimen/large_text_size"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:background="@color/background_secondary"
-            android:padding="@dimen/padding_medium"
-            android:elevation="@dimen/elevation_small"
-            android:layout_marginBottom="@dimen/margin_large" />
-
-        <!-- Price Input -->
+        <!-- Header -->
         <LinearLayout
+            android:id="@+id/headerLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="@dimen/padding_medium"
             android:layout_marginBottom="@dimen/margin_large">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/price_in_toman"
-                android:textColor="@color/primary_text"
-                android:textSize="@dimen/medium_text_size"
-                android:textStyle="bold"
-                android:layout_marginBottom="@dimen/margin_medium" />
+            <Button
+                android:id="@+id/backButton"
+                android:layout_width="80dp"
+                android:layout_height="56dp"
+                style="@style/ButtonSecondary"
+                android:text="@string/back"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/priceEditText"
-                android:layout_width="300dp"
-                android:layout_height="80dp"
-                android:background="@drawable/card_background"
-                android:hint="قیمت جدید"
-                android:textColor="@color/primary_text"
-                android:textSize="@dimen/large_text_size"
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/price_settings"
+                android:textColor="@color/md_theme_light_onBackground"
+                android:textSize="24sp"
                 android:textStyle="bold"
-                android:gravity="center"
-                android:inputType="number"
-                android:elevation="@dimen/elevation_medium" />
+                android:gravity="center" />
+
+            <View
+                android:layout_width="80dp"
+                android:layout_height="1dp" />
 
         </LinearLayout>
 
-        <!-- Status Display -->
-        <TextView
-            android:id="@+id/statusTextView"
+        <!-- Current Price Card -->
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="قیمت جدید را وارد کنید"
-            android:textColor="@color/primary_text"
-            android:textSize="@dimen/medium_text_size"
-            android:textStyle="bold"
+            android:layout_marginBottom="@dimen/margin_large"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="@color/md_theme_light_primaryContainer">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/padding_large"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="قیمت فعلی"
+                    android:textColor="@color/md_theme_light_onPrimaryContainer"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="@dimen/margin_small" />
+
+                <TextView
+                    android:id="@+id/currentPriceTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5,000 تومان"
+                    android:textColor="@color/md_theme_light_onPrimaryContainer"
+                    android:textSize="32sp"
+                    android:textStyle="bold"
+                    android:gravity="center" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Price Input Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_large"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="@color/md_theme_light_surface">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/padding_large">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/price_in_toman"
+                    android:textColor="@color/md_theme_light_onSurface"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/margin_medium" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_medium"
+                    app:boxBackgroundMode="outline"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxStrokeColor="@color/md_theme_light_primary"
+                    app:hintTextColor="@color/md_theme_light_primary">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/priceEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="قیمت جدید"
+                        android:textColor="@color/md_theme_light_onSurface"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:inputType="number" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Status Display Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_large"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/md_theme_light_surfaceContainerLow">
+
+            <TextView
+                android:id="@+id/statusTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="قیمت جدید را وارد کنید"
+                android:textColor="@color/md_theme_light_onSurface"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:padding="@dimen/padding_medium" />
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Action Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:gravity="center"
-            android:background="@color/background_secondary"
-            android:padding="@dimen/padding_medium"
-            android:elevation="@dimen/elevation_small"
-            android:layout_marginBottom="@dimen/margin_large" />
+            android:layout_marginTop="@dimen/margin_medium">
+
+            <Button
+                android:id="@+id/saveButton"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="@dimen/margin_small"
+                style="@style/ButtonPrimary"
+                android:text="@string/save"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/resetButton"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/margin_small"
+                style="@style/ButtonSecondary"
+                android:text="@string/reset_to_default"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
-    <!-- Bottom Navigation -->
-    <LinearLayout
-        android:id="@+id/bottomLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:padding="@dimen/padding_medium">
-
-        <Button
-            android:id="@+id/saveButton"
-            android:layout_width="150dp"
-            android:layout_height="80dp"
-            android:layout_marginEnd="@dimen/margin_small"
-            android:background="@drawable/button_start_selector"
-            android:text="@string/save"
-            android:textColor="@color/white"
-            android:textSize="@dimen/medium_text_size"
-            android:textStyle="bold"
-            android:elevation="@dimen/elevation_medium" />
-
-        <Button
-            android:id="@+id/resetButton"
-            android:layout_width="150dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="@dimen/margin_small"
-            android:background="@drawable/button_admin_selector"
-            android:text="@string/reset_to_default"
-            android:textColor="@color/white"
-            android:textSize="@dimen/medium_text_size"
-            android:textStyle="bold"
-            android:elevation="@dimen/elevation_medium" />
-
-    </LinearLayout>
-
-</RelativeLayout>
+</ScrollView>

@@ -98,6 +98,12 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
+            android:name=".ui.admin.PasswordChangeActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
             android:name=".ui.admin.PriceSettingsActivity"
             android:exported="false"
             android:screenOrientation="portrait"

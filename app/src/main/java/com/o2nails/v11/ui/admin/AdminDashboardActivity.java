@@ -22,6 +22,7 @@ public class AdminDashboardActivity extends Activity {
     private Button imageManagementButton;
     private Button systemSettingsButton;
     private Button reportsButton;
+    private Button passwordChangeButton;
     private Button logoutButton;
     private TextView welcomeTextView;
     private TextView statsTextView;
@@ -45,6 +46,7 @@ public class AdminDashboardActivity extends Activity {
         imageManagementButton = findViewById(R.id.imageManagementButton);
         systemSettingsButton = findViewById(R.id.systemSettingsButton);
         reportsButton = findViewById(R.id.reportsButton);
+        passwordChangeButton = findViewById(R.id.passwordChangeButton);
         logoutButton = findViewById(R.id.logoutButton);
         welcomeTextView = findViewById(R.id.welcomeTextView);
         statsTextView = findViewById(R.id.statsTextView);
@@ -83,6 +85,14 @@ public class AdminDashboardActivity extends Activity {
             }
         });
 
+        passwordChangeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                animateButtonClick(passwordChangeButton);
+                openPasswordChange();
+            }
+        });
+
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,6 +109,7 @@ public class AdminDashboardActivity extends Activity {
         imageManagementButton.setAlpha(0f);
         systemSettingsButton.setAlpha(0f);
         reportsButton.setAlpha(0f);
+        passwordChangeButton.setAlpha(0f);
         logoutButton.setAlpha(0f);
 
         ObjectAnimator welcomeFadeIn = ObjectAnimator.ofFloat(welcomeTextView, "alpha", 0f, 1f);
@@ -106,6 +117,7 @@ public class AdminDashboardActivity extends Activity {
         ObjectAnimator imageFadeIn = ObjectAnimator.ofFloat(imageManagementButton, "alpha", 0f, 1f);
         ObjectAnimator systemFadeIn = ObjectAnimator.ofFloat(systemSettingsButton, "alpha", 0f, 1f);
         ObjectAnimator reportsFadeIn = ObjectAnimator.ofFloat(reportsButton, "alpha", 0f, 1f);
+        ObjectAnimator passwordFadeIn = ObjectAnimator.ofFloat(passwordChangeButton, "alpha", 0f, 1f);
         ObjectAnimator logoutFadeIn = ObjectAnimator.ofFloat(logoutButton, "alpha", 0f, 1f);
 
         welcomeFadeIn.setDuration(600);
@@ -113,16 +125,18 @@ public class AdminDashboardActivity extends Activity {
         imageFadeIn.setDuration(600);
         systemFadeIn.setDuration(600);
         reportsFadeIn.setDuration(600);
+        passwordFadeIn.setDuration(600);
         logoutFadeIn.setDuration(600);
 
         priceFadeIn.setStartDelay(200);
         imageFadeIn.setStartDelay(400);
         systemFadeIn.setStartDelay(600);
         reportsFadeIn.setStartDelay(800);
-        logoutFadeIn.setStartDelay(1000);
+        passwordFadeIn.setStartDelay(1000);
+        logoutFadeIn.setStartDelay(1200);
 
         AnimatorSet animatorSet = new AnimatorSet();
-        animatorSet.playTogether(welcomeFadeIn, priceFadeIn, imageFadeIn, systemFadeIn, reportsFadeIn, logoutFadeIn);
+        animatorSet.playTogether(welcomeFadeIn, priceFadeIn, imageFadeIn, systemFadeIn, reportsFadeIn, passwordFadeIn, logoutFadeIn);
         animatorSet.start();
     }
 
@@ -172,6 +186,11 @@ public class AdminDashboardActivity extends Activity {
 
     private void openReports() {
         Intent intent = new Intent(this, ReportsActivity.class);
+        startActivity(intent);
+    }
+
+    private void openPasswordChange() {
+        Intent intent = new Intent(this, PasswordChangeActivity.class);
         startActivity(intent);
     }
 

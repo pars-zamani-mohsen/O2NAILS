@@ -148,7 +148,10 @@ public class AdminLoginActivity extends Activity {
             return;
         }
 
-        if (enteredPassword.equals(AppConstants.ADMIN_PASSWORD)) {
+        // Get current admin password (either from preferences or default)
+        String currentPassword = preferenceManager.getString("admin_password", AppConstants.ADMIN_PASSWORD);
+        
+        if (enteredPassword.equals(currentPassword)) {
             // Login successful
             onLoginSuccess();
         } else {

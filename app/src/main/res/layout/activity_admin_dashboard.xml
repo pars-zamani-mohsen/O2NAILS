@@ -188,7 +188,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/margin_medium">
 
                 <!-- System Settings Card -->
                 <androidx.cardview.widget.CardView
@@ -235,6 +236,44 @@
                         android:gravity="center" />
 
                 </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+            <!-- Row 3 - Password Change -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Password Change Card -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="140dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="@dimen/margin_small"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="8dp"
+                    app:cardBackgroundColor="@color/md_theme_light_errorContainer">
+
+                    <Button
+                        android:id="@+id/passwordChangeButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:text="تغییر رمز عبور"
+                        android:textColor="@color/md_theme_light_onErrorContainer"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:gravity="center" />
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- Empty space for future features -->
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="140dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/margin_small" />
 
             </LinearLayout>
 

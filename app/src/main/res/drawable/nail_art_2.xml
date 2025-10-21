@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="200"
+    android:viewportHeight="200">
+    
+    <!-- Nail base -->
+    <path
+        android:fillColor="@color/nail_blue"
+        android:pathData="M50,30c0,-5.5 4.5,-10 10,-10h80c5.5,0 10,4.5 10,10v140c0,5.5 -4.5,10 -10,10H60c-5.5,0 -10,-4.5 -10,-10V30z"/>
+    
+    <!-- Star pattern -->
+    <path
+        android:fillColor="@color/nail_silver"
+        android:pathData="M100,60l8,16l16,0l-12,10l4,16l-16,-12l-16,12l4,-16l-12,-10l16,0z"/>
+    
+    <path
+        android:fillColor="@color/nail_white"
+        android:pathData="M100,100l4,8l8,0l-6,5l2,8l-8,-6l-8,6l2,-8l-6,-5l8,0z"/>
+    
+    <path
+        android:fillColor="@color/nail_gold"
+        android:pathData="M100,140l3,6l6,0l-5,4l2,6l-6,-5l-6,5l2,-6l-5,-4l6,0z"/>
+    
+</vector>

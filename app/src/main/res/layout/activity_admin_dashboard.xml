@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_background"
+    android:padding="@dimen/margin_medium">
+
+    <!-- Header -->
+    <LinearLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="@dimen/padding_medium">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/admin_dashboard"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/large_text_size"
+            android:textStyle="bold"
+            android:gravity="center" />
+
+        <Button
+            android:id="@+id/logoutButton"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:background="@drawable/button_admin_selector"
+            android:text="@string/logout"
+            android:textColor="@color/white"
+            android:textSize="@dimen/medium_text_size"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <!-- Welcome Message -->
+    <TextView
+        android:id="@+id/welcomeTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/headerLayout"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:text="خوش آمدید، مدیر سیستم"
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/large_text_size"
+        android:textStyle="bold"
+        android:gravity="center" />
+
+    <!-- Stats Display -->
+    <TextView
+        android:id="@+id/statsTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/welcomeTextView"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:text="قیمت فعلی: 5,000 تومان\nکل تراکنش‌ها: 0"
+        android:textColor="@color/secondary_text"
+        android:textSize="@dimen/medium_text_size"
+        android:gravity="center"
+        android:background="@color/background_secondary"
+        android:padding="@dimen/padding_medium"
+        android:elevation="@dimen/elevation_small" />
+
+    <!-- Main Menu Grid -->
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/statsTextView"
+        android:layout_above="@id/bottomLayout"
+        android:layout_marginTop="@dimen/margin_large"
+        android:columnCount="2"
+        android:rowCount="2"
+        android:alignmentMode="alignBounds"
+        android:useDefaultMargins="true">
+
+        <!-- Price Settings -->
+        <Button
+            android:id="@+id/priceSettingsButton"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="@dimen/margin_small"
+            android:background="@drawable/button_start_selector"
+            android:text="@string/price_settings"
+            android:textColor="@color/white"
+            android:textSize="@dimen/medium_text_size"
+            android:textStyle="bold"
+            android:elevation="@dimen/elevation_medium" />
+
+        <!-- Image Management -->
+        <Button
+            android:id="@+id/imageManagementButton"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="@dimen/margin_small"
+            android:background="@drawable/button_start_selector"
+            android:text="@string/image_management"
+            android:textColor="@color/white"
+            android:textSize="@dimen/medium_text_size"
+            android:textStyle="bold"
+            android:elevation="@dimen/elevation_medium" />
+
+        <!-- System Settings -->
+        <Button
+            android:id="@+id/systemSettingsButton"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="@dimen/margin_small"
+            android:background="@drawable/button_start_selector"
+            android:text="@string/system_settings"
+            android:textColor="@color/white"
+            android:textSize="@dimen/medium_text_size"
+            android:textStyle="bold"
+            android:elevation="@dimen/elevation_medium" />
+
+        <!-- Reports -->
+        <Button
+            android:id="@+id/reportsButton"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="@dimen/margin_small"
+            android:background="@drawable/button_start_selector"
+            android:text="@string/reports"
+            android:textColor="@color/white"
+            android:textSize="@dimen/medium_text_size"
+            android:textStyle="bold"
+            android:elevation="@dimen/elevation_medium" />
+
+    </GridLayout>
+
+    <!-- Bottom Layout -->
+    <LinearLayout
+        android:id="@+id/bottomLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="@dimen/padding_medium">
+
+        <!-- Status indicators could go here -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <View
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginEnd="@dimen/margin_extra_small"
+                android:background="@drawable/status_indicator_online" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="سیستم آنلاین"
+                android:textColor="@color/secondary_text"
+                android:textSize="@dimen/small_text_size" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

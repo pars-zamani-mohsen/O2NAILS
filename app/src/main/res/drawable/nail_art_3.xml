@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="200"
+    android:viewportHeight="200">
+    
+    <!-- Nail base -->
+    <path
+        android:fillColor="@color/nail_purple"
+        android:pathData="M50,30c0,-5.5 4.5,-10 10,-10h80c5.5,0 10,4.5 10,10v140c0,5.5 -4.5,10 -10,10H60c-5.5,0 -10,-4.5 -10,-10V30z"/>
+    
+    <!-- Flower pattern -->
+    <circle
+        android:fillColor="@color/nail_pink"
+        android:pathData="M100,70m-15,0a15,15 0,1 1,30 0a15,15 0,1 1,-30 0"/>
+    
+    <circle
+        android:fillColor="@color/nail_white"
+        android:pathData="M100,70m-8,0a8,8 0,1 1,16 0a8,8 0,1 1,-16 0"/>
+    
+    <!-- Petals -->
+    <path
+        android:fillColor="@color/nail_pink"
+        android:pathData="M100,55c0,-8 8,-8 8,0s-8,8 0,8s8,8 0,8s-8,-8 0,-8s8,-8 0,-8z"/>
+    
+    <path
+        android:fillColor="@color/nail_pink"
+        android:pathData="M85,70c-8,0 -8,8 0,8s8,-8 0,-8s-8,-8 0,-8s8,8 0,8s-8,8 0,8z"/>
+    
+    <path
+        android:fillColor="@color/nail_pink"
+        android:pathData="M115,70c8,0 8,8 0,8s-8,-8 0,-8s8,-8 0,-8s-8,8 0,8s8,8 0,8z"/>
+    
+    <path
+        android:fillColor="@color/nail_pink"
+        android:pathData="M100,85c0,8 -8,8 -8,0s8,-8 0,-8s-8,-8 0,-8s8,8 0,8s8,8 0,8z"/>
+    
+</vector>

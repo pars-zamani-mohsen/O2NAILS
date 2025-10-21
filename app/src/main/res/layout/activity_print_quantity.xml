@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_background"
+    android:padding="@dimen/margin_medium">
+
+    <!-- Header -->
+    <LinearLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="@dimen/padding_medium">
+
+        <Button
+            android:id="@+id/backButton"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:background="@drawable/button_admin_selector"
+            android:text="@string/back"
+            android:textColor="@color/white"
+            android:textSize="@dimen/medium_text_size"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/print_quantity"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/large_text_size"
+            android:textStyle="bold"
+            android:gravity="center" />
+
+        <View
+            android:layout_width="80dp"
+            android:layout_height="1dp" />
+
+    </LinearLayout>
+
+    <!-- Main Content -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/headerLayout"
+        android:layout_above="@id/bottomLayout"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <!-- Image Preview (1/2 width) -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_medium"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/preview_image"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/medium_text_size"
+                android:textStyle="bold"
+                android:layout_marginBottom="@dimen/margin_medium" />
+
+            <ImageView
+                android:id="@+id/previewImageView"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:scaleType="centerCrop"
+                android:background="@color/white"
+                android:elevation="@dimen/elevation_medium"
+                android:src="@drawable/ic_image_placeholder" />
+
+        </LinearLayout>
+
+        <!-- Quantity Controls (1/2 width) -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_medium"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/quantity"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/large_text_size"
+                android:textStyle="bold"
+                android:layout_marginBottom="@dimen/margin_large" />
+
+            <!-- Quantity Display -->
+            <TextView
+                android:id="@+id/quantityTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textColor="@color/primary"
+                android:textSize="72sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="@dimen/margin_large" />
+
+            <!-- Quantity Controls -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="@dimen/margin_large">
+
+                <Button
+                    android:id="@+id/decreaseButton"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/button_admin_selector"
+                    android:text="-"
+                    android:textColor="@color/white"
+                    android:textSize="32sp"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="@dimen/margin_medium" />
+
+                <Button
+                    android:id="@+id/increaseButton"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/button_start_selector"
+                    android:text="+"
+                    android:textColor="@color/white"
+                    android:textSize="32sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="@dimen/margin_medium" />
+
+            </LinearLayout>
+
+            <!-- Price Information -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/background_secondary"
+                android:padding="@dimen/padding_medium"
+                android:elevation="@dimen/elevation_small">
+
+                <TextView
+                    android:id="@+id/pricePerPrintTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="قیمت هر پرینت: 5,000 تومان"
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/medium_text_size"
+                    android:layout_marginBottom="@dimen/margin_small" />
+
+                <TextView
+                    android:id="@+id/totalAmountTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="مبلغ کل: 5,000 تومان"
+                    android:textColor="@color/primary"
+                    android:textSize="@dimen/large_text_size"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Bottom Navigation -->
+    <LinearLayout
+        android:id="@+id/bottomLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="@dimen/padding_medium">
+
+        <Button
+            android:id="@+id/nextButton"
+            android:layout_width="250dp"
+            android:layout_height="80dp"
+            android:background="@drawable/button_start_selector"
+            android:text="@string/proceed_to_payment"
+            android:textColor="@color/white"
+            android:textSize="@dimen/medium_text_size"
+            android:textStyle="bold"
+            android:elevation="@dimen/elevation_medium" />
+
+    </LinearLayout>
+
+</RelativeLayout>

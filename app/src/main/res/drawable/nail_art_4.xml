@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="200"
+    android:viewportHeight="200">
+    
+    <!-- Nail base -->
+    <path
+        android:fillColor="@color/nail_green"
+        android:pathData="M50,30c0,-5.5 4.5,-10 10,-10h80c5.5,0 10,4.5 10,10v140c0,5.5 -4.5,10 -10,10H60c-5.5,0 -10,-4.5 -10,-10V30z"/>
+    
+    <!-- Geometric pattern -->
+    <path
+        android:fillColor="@color/nail_white"
+        android:pathData="M70,50l30,0l15,26l-15,26l-30,0l-15,-26z"/>
+    
+    <path
+        android:fillColor="@color/nail_black"
+        android:pathData="M85,65l20,0l10,17l-10,17l-20,0l-10,-17z"/>
+    
+    <path
+        android:fillColor="@color/nail_yellow"
+        android:pathData="M100,80l10,0l5,9l-5,9l-10,0l-5,-9z"/>
+    
+</vector>

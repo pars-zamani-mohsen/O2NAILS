@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="200"
+    android:viewportHeight="200">
+    
+    <!-- Nail base -->
+    <path
+        android:fillColor="@color/nail_red"
+        android:pathData="M50,30c0,-5.5 4.5,-10 10,-10h80c5.5,0 10,4.5 10,10v140c0,5.5 -4.5,10 -10,10H60c-5.5,0 -10,-4.5 -10,-10V30z"/>
+    
+    <!-- Heart pattern -->
+    <path
+        android:fillColor="@color/nail_white"
+        android:pathData="M100,60c-8,-12 -20,-8 -20,4c0,12 20,20 20,20s20,-8 20,-20c0,-12 -12,-16 -20,-4z"/>
+    
+    <path
+        android:fillColor="@color/nail_pink"
+        android:pathData="M100,70c-4,-6 -10,-4 -10,2c0,6 10,10 10,10s10,-4 10,-10c0,-6 -6,-8 -10,-2z"/>
+    
+</vector>

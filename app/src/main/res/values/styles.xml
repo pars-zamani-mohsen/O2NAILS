@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="android:windowBackground">@color/background_primary</item>
+        <item name="android:textColorPrimary">@color/primary_text</item>
+        <item name="android:textColorSecondary">@color/secondary_text</item>
+        <item name="android:statusBarColor">@color/primary_dark</item>
+        <item name="android:navigationBarColor">@color/primary_dark</item>
+    </style>
+
+    <!-- No Action Bar Theme -->
+    <style name="AppTheme.NoActionBar" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <!-- Full Screen Theme -->
+    <style name="AppTheme.FullScreen" parent="AppTheme.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+    </style>
+
+    <!-- Button Styles -->
+    <style name="ButtonPrimary" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/button_primary_background</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:minHeight">120dp</item>
+        <item name="android:minWidth">200dp</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:elevation">4dp</item>
+    </style>
+
+    <style name="ButtonSecondary" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/button_secondary_background</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:minHeight">80dp</item>
+        <item name="android:minWidth">150dp</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:elevation">2dp</item>
+    </style>
+
+    <style name="ButtonSmall" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/button_small_background</item>
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:minHeight">60dp</item>
+        <item name="android:minWidth">100dp</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:elevation">1dp</item>
+    </style>
+
+    <!-- Text Styles -->
+    <style name="TextLarge" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextMedium" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/primary_text</item>
+    </style>
+
+    <style name="TextSmall" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/secondary_text</item>
+    </style>
+
+    <style name="TextHint" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/hint_text</item>
+    </style>
+
+    <!-- Card Styles -->
+    <style name="CardStyle">
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:elevation">4dp</item>
+        <item name="cardCornerRadius">8dp</item>
+        <item name="cardBackgroundColor">@color/background_primary</item>
+    </style>
+
+    <style name="CardStyleLarge" parent="CardStyle">
+        <item name="android:layout_margin">16dp</item>
+        <item name="android:elevation">8dp</item>
+        <item name="cardCornerRadius">12dp</item>
+    </style>
+
+    <!-- Admin Theme -->
+    <style name="AdminTheme" parent="AppTheme.NoActionBar">
+        <item name="colorPrimary">@color/admin_primary</item>
+        <item name="colorPrimaryDark">@color/admin_secondary</item>
+        <item name="colorAccent">@color/admin_accent</item>
+        <item name="android:windowBackground">@color/admin_background</item>
+    </style>
+
+    <!-- User Theme -->
+    <style name="UserTheme" parent="AppTheme.NoActionBar">
+        <item name="colorPrimary">@color/user_primary</item>
+        <item name="colorPrimaryDark">@color/user_secondary</item>
+        <item name="colorAccent">@color/user_accent</item>
+        <item name="android:windowBackground">@color/user_background</item>
+    </style>
+
+    <!-- Progress Bar Styles -->
+    <style name="ProgressBarStyle">
+        <item name="android:progressTint">@color/primary</item>
+        <item name="android:progressBackgroundTint">@color/border_light</item>
+        <item name="android:minHeight">8dp</item>
+    </style>
+
+    <!-- EditText Styles -->
+    <style name="EditTextStyle">
+        <item name="android:background">@drawable/edittext_background</item>
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:minHeight">60dp</item>
+    </style>
+
+    <!-- ImageView Styles -->
+    <style name="ImageViewStyle">
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:background">@color/border_light</item>
+    </style>
+
+    <!-- GridView Styles -->
+    <style name="GridViewStyle">
+        <item name="android:numColumns">3</item>
+        <item name="android:horizontalSpacing">8dp</item>
+        <item name="android:verticalSpacing">8dp</item>
+        <item name="android:stretchMode">columnWidth</item>
+    </style>
+
+    <!-- Status Bar Styles -->
+    <style name="StatusBarStyle" parent="AppTheme">
+        <item name="android:statusBarColor">@color/primary_dark</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <!-- Animation Styles -->
+    <style name="FadeInAnimation" parent="android:Animation">
+        <item name="android:duration">300</item>
+        <item name="android:interpolator">@android:anim/accelerate_interpolator</item>
+    </style>
+
+    <style name="SlideInAnimation" parent="android:Animation">
+        <item name="android:duration">400</item>
+        <item name="android:interpolator">@android:anim/decelerate_interpolator</item>
+    </style>
+
+</resources>

@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_background"
+    android:padding="@dimen/margin_medium">
+
+    <!-- Header -->
+    <LinearLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="@dimen/padding_medium">
+
+        <Button
+            android:id="@+id/cancelButton"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:background="@drawable/button_admin_selector"
+            android:text="@string/cancel"
+            android:textColor="@color/white"
+            android:textSize="@dimen/medium_text_size"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/admin_login"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/large_text_size"
+            android:textStyle="bold"
+            android:gravity="center" />
+
+        <View
+            android:layout_width="80dp"
+            android:layout_height="1dp" />
+
+    </LinearLayout>
+
+    <!-- Main Content -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/headerLayout"
+        android:layout_above="@id/bottomLayout"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="@dimen/padding_large">
+
+        <!-- Password Input -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginBottom="@dimen/margin_large">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/enter_password"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/large_text_size"
+                android:textStyle="bold"
+                android:layout_marginBottom="@dimen/margin_medium" />
+
+            <EditText
+                android:id="@+id/passwordEditText"
+                android:layout_width="300dp"
+                android:layout_height="80dp"
+                android:background="@drawable/card_background"
+                android:hint="رمز عبور 8 رقمی"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/large_text_size"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:inputType="numberPassword"
+                android:maxLength="8"
+                android:elevation="@dimen/elevation_medium" />
+
+        </LinearLayout>
+
+        <!-- Number Pad -->
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:columnCount="3"
+            android:rowCount="4"
+            android:layout_marginBottom="@dimen/margin_large">
+
+            <!-- Row 1 -->
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:layout_margin="@dimen/margin_extra_small"
+                android:background="@drawable/button_start_selector"
+                android:text="1"
+                android:textColor="@color/white"
+                android:textSize="@dimen/large_text_size"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:layout_margin="@dimen/margin_extra_small"
+                android:background="@drawable/button_start_selector"
+                android:text="2"
+                android:textColor="@color/white"
+                android:textSize="@dimen/large_text_size"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:layout_margin="@dimen/margin_extra_small"
+                android:background="@drawable/button_start_selector"
+                android:text="3"
+                android:textColor="@color/white"
+                android:textSize="@dimen/large_text_size"
+                android:textStyle="bold" />
+
+            <!-- Row 2 -->
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:layout_margin="@dimen/margin_extra_small"
+                android:background="@drawable/button_start_selector"
+                android:text="4"
+                android:textColor="@color/white"
+                android:textSize="@dimen/large_text_size"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:layout_margin="@dimen/margin_extra_small"
+                android:background="@drawable/button_start_selector"
+                android:text="5"
+                android:textColor="@color/white"
+                android:textSize="@dimen/large_text_size"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/button6"
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:layout_margin="@dimen/margin_extra_small"
+                android:background="@drawable/button_start_selector"
+                android:text="6"
+                android:textColor="@color/white"
+                android:textSize="@dimen/large_text_size"
+                android:textStyle="bold" />
+
+            <!-- Row 3 -->
+            <Button
+                android:id="@+id/button7"
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:layout_margin="@dimen/margin_extra_small"
+                android:background="@drawable/button_start_selector"
+                android:text="7"
+                android:textColor="@color/white"
+                android:textSize="@dimen/large_text_size"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/button8"
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:layout_margin="@dimen/margin_extra_small"
+                android:background="@drawable/button_start_selector"
+                android:text="8"
+                android:textColor="@color/white"
+                android:textSize="@dimen/large_text_size"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/button9"
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:layout_margin="@dimen/margin_extra_small"
+                android:background="@drawable/button_start_selector"
+                android:text="9"
+                android:textColor="@color/white"
+                android:textSize="@dimen/large_text_size"
+                android:textStyle="bold" />
+
+            <!-- Row 4 -->
+            <View
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:layout_margin="@dimen/margin_extra_small" />
+
+            <Button
+                android:id="@+id/button0"
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:layout_margin="@dimen/margin_extra_small"
+                android:background="@drawable/button_start_selector"
+                android:text="0"
+                android:textColor="@color/white"
+                android:textSize="@dimen/large_text_size"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:layout_margin="@dimen/margin_extra_small" />
+
+        </GridLayout>
+
+        <!-- Status Display -->
+        <TextView
+            android:id="@+id/statusTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="رمز عبور را وارد کنید"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/medium_text_size"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:background="@color/background_secondary"
+            android:padding="@dimen/padding_medium"
+            android:elevation="@dimen/elevation_small" />
+
+        <!-- Lock Countdown -->
+        <TextView
+            android:id="@+id/lockCountdownTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:text="قفل شده: 10:00"
+            android:textColor="@color/button_danger"
+            android:textSize="@dimen/large_text_size"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:background="@color/background_secondary"
+            android:padding="@dimen/padding_medium"
+            android:elevation="@dimen/elevation_small"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <!-- Bottom Navigation -->
+    <LinearLayout
+        android:id="@+id/bottomLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="@dimen/padding_medium">
+
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="200dp"
+            android:layout_height="80dp"
+            android:background="@drawable/button_start_selector"
+            android:text="@string/login"
+            android:textColor="@color/white"
+            android:textSize="@dimen/medium_text_size"
+            android:textStyle="bold"
+            android:elevation="@dimen/elevation_medium" />
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_background"
+    android:padding="@dimen/margin_medium">
+
+    <!-- Header -->
+    <LinearLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="@dimen/padding_medium">
+
+        <Button
+            android:id="@+id/backButton"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:background="@drawable/button_admin_selector"
+            android:text="@string/back"
+            android:textColor="@color/white"
+            android:textSize="@dimen/medium_text_size"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/price_settings"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/large_text_size"
+            android:textStyle="bold"
+            android:gravity="center" />
+
+        <View
+            android:layout_width="80dp"
+            android:layout_height="1dp" />
+
+    </LinearLayout>
+
+    <!-- Main Content -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/headerLayout"
+        android:layout_above="@id/bottomLayout"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="@dimen/padding_large">
+
+        <!-- Current Price Display -->
+        <TextView
+            android:id="@+id/currentPriceTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="قیمت فعلی: 5,000 تومان"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/large_text_size"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:background="@color/background_secondary"
+            android:padding="@dimen/padding_medium"
+            android:elevation="@dimen/elevation_small"
+            android:layout_marginBottom="@dimen/margin_large" />
+
+        <!-- Price Input -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginBottom="@dimen/margin_large">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/price_in_toman"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/medium_text_size"
+                android:textStyle="bold"
+                android:layout_marginBottom="@dimen/margin_medium" />
+
+            <EditText
+                android:id="@+id/priceEditText"
+                android:layout_width="300dp"
+                android:layout_height="80dp"
+                android:background="@drawable/card_background"
+                android:hint="قیمت جدید"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/large_text_size"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:inputType="number"
+                android:elevation="@dimen/elevation_medium" />
+
+        </LinearLayout>
+
+        <!-- Status Display -->
+        <TextView
+            android:id="@+id/statusTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="قیمت جدید را وارد کنید"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/medium_text_size"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:background="@color/background_secondary"
+            android:padding="@dimen/padding_medium"
+            android:elevation="@dimen/elevation_small"
+            android:layout_marginBottom="@dimen/margin_large" />
+
+    </LinearLayout>
+
+    <!-- Bottom Navigation -->
+    <LinearLayout
+        android:id="@+id/bottomLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="@dimen/padding_medium">
+
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="150dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:background="@drawable/button_start_selector"
+            android:text="@string/save"
+            android:textColor="@color/white"
+            android:textSize="@dimen/medium_text_size"
+            android:textStyle="bold"
+            android:elevation="@dimen/elevation_medium" />
+
+        <Button
+            android:id="@+id/resetButton"
+            android:layout_width="150dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="@dimen/margin_small"
+            android:background="@drawable/button_admin_selector"
+            android:text="@string/reset_to_default"
+            android:textColor="@color/white"
+            android:textSize="@dimen/medium_text_size"
+            android:textStyle="bold"
+            android:elevation="@dimen/elevation_medium" />
+
+    </LinearLayout>
+
+</RelativeLayout>

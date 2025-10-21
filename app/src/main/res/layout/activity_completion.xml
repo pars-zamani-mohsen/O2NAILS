@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_background"
+    android:padding="@dimen/margin_medium">
+
+    <!-- Main Content -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="@dimen/padding_large">
+
+        <!-- Thank You Message -->
+        <TextView
+            android:id="@+id/thankYouTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/thank_you"
+            android:textColor="@color/primary"
+            android:textSize="48sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="@dimen/margin_large" />
+
+        <!-- Image Preview -->
+        <ImageView
+            android:id="@+id/previewImageView"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:background="@color/white"
+            android:elevation="@dimen/elevation_medium"
+            android:src="@drawable/ic_image_placeholder"
+            android:layout_marginBottom="@dimen/margin_large" />
+
+        <!-- Completion Message -->
+        <TextView
+            android:id="@+id/completionTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="پرینت با موفقیت انجام شد"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/medium_text_size"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:background="@color/background_secondary"
+            android:padding="@dimen/padding_medium"
+            android:elevation="@dimen/elevation_small"
+            android:layout_marginBottom="@dimen/margin_large" />
+
+        <!-- Action Buttons -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/newPrintButton"
+                android:layout_width="200dp"
+                android:layout_height="80dp"
+                android:layout_marginEnd="@dimen/margin_medium"
+                android:background="@drawable/button_start_selector"
+                android:text="@string/new_print"
+                android:textColor="@color/white"
+                android:textSize="@dimen/medium_text_size"
+                android:textStyle="bold"
+                android:elevation="@dimen/elevation_medium" />
+
+            <Button
+                android:id="@+id/finishButton"
+                android:layout_width="150dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:background="@drawable/button_admin_selector"
+                android:text="@string/finish"
+                android:textColor="@color/white"
+                android:textSize="@dimen/medium_text_size"
+                android:textStyle="bold"
+                android:elevation="@dimen/elevation_medium" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

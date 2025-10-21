@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:background="@drawable/card_background"
+    android:padding="@dimen/padding_extra_small"
+    android:elevation="@dimen/elevation_small">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_above="@id/infoLayout"
+        android:scaleType="centerCrop"
+        android:background="@color/white"
+        android:src="@drawable/ic_image_placeholder" />
+
+    <LinearLayout
+        android:id="@+id/infoLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_extra_small"
+        android:background="@color/semi_transparent_black">
+
+        <TextView
+            android:id="@+id/nameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="نام تصویر"
+            android:textColor="@color/white"
+            android:textSize="@dimen/extra_small_text_size"
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <TextView
+            android:id="@+id/typeTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="نوع"
+            android:textColor="@color/white"
+            android:textSize="@dimen/extra_small_text_size"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/favoriteIcon"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/margin_extra_small"
+        android:layout_marginEnd="@dimen/margin_extra_small"
+        android:src="@drawable/ic_favorite"
+        android:visibility="gone" />
+
+</RelativeLayout>

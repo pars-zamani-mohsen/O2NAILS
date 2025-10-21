@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="200"
+    android:viewportHeight="200">
+    
+    <!-- Nail base -->
+    <path
+        android:fillColor="@color/nail_black"
+        android:pathData="M50,30c0,-5.5 4.5,-10 10,-10h80c5.5,0 10,4.5 10,10v140c0,5.5 -4.5,10 -10,10H60c-5.5,0 -10,-4.5 -10,-10V30z"/>
+    
+    <!-- Lightning pattern -->
+    <path
+        android:fillColor="@color/nail_yellow"
+        android:pathData="M85,50l10,20l-5,10l15,-15l-10,-20l5,-10z"/>
+    
+    <path
+        android:fillColor="@color/nail_white"
+        android:pathData="M90,60l5,10l-2,5l8,-8l-5,-10l2,-5z"/>
+    
+    <!-- Sparkles -->
+    <path
+        android:fillColor="@color/nail_silver"
+        android:pathData="M70,80l2,2l-2,2l-2,-2z"/>
+    <path
+        android:fillColor="@color/nail_silver"
+        android:pathData="M130,100l2,2l-2,2l-2,-2z"/>
+    <path
+        android:fillColor="@color/nail_silver"
+        android:pathData="M80,130l2,2l-2,2l-2,-2z"/>
+    
+</vector>

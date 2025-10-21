@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_background"
+    android:padding="@dimen/margin_medium">
+
+    <!-- Header -->
+    <LinearLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="@dimen/padding_medium">
+
+        <Button
+            android:id="@+id/backButton"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:background="@drawable/button_admin_selector"
+            android:text="@string/back"
+            android:textColor="@color/white"
+            android:textSize="@dimen/medium_text_size"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/reports"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/large_text_size"
+            android:textStyle="bold"
+            android:gravity="center" />
+
+    </LinearLayout>
+
+    <!-- Report Statistics -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/headerLayout"
+        android:layout_marginTop="@dimen/margin_large"
+        android:orientation="vertical"
+        android:background="@color/background_primary"
+        android:padding="@dimen/padding_medium"
+        android:elevation="4dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="آمار کلی"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/large_text_size"
+            android:textStyle="bold"
+            android:layout_marginBottom="@dimen/margin_medium" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/margin_small">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/total_prints"
+                android:textColor="@color/secondary_text"
+                android:textSize="@dimen/medium_text_size" />
+
+            <TextView
+                android:id="@+id/totalPrintsTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/medium_text_size"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/margin_small">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/total_revenue"
+                android:textColor="@color/secondary_text"
+                android:textSize="@dimen/medium_text_size" />
+
+            <TextView
+                android:id="@+id/totalRevenueTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 تومان"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/medium_text_size"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/margin_small">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/average_per_day"
+                android:textColor="@color/secondary_text"
+                android:textSize="@dimen/medium_text_size" />
+
+            <TextView
+                android:id="@+id/averagePerDayTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/medium_text_size"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/reportDateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text=""
+            android:textColor="@color/hint_text"
+            android:textSize="@dimen/small_text_size"
+            android:layout_marginTop="@dimen/margin_small" />
+
+    </LinearLayout>
+
+    <!-- Report Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/headerLayout"
+        android:layout_marginTop="200dp"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/dailyReportButton"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:background="@drawable/button_secondary_background"
+            android:text="@string/daily_report"
+            android:textColor="@color/white"
+            android:textSize="@dimen/medium_text_size"
+            android:textStyle="bold"
+            android:layout_marginBottom="@dimen/margin_medium" />
+
+        <Button
+            android:id="@+id/weeklyReportButton"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:background="@drawable/button_secondary_background"
+            android:text="@string/weekly_report"
+            android:textColor="@color/white"
+            android:textSize="@dimen/medium_text_size"
+            android:textStyle="bold"
+            android:layout_marginBottom="@dimen/margin_medium" />
+
+        <Button
+            android:id="@+id/monthlyReportButton"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:background="@drawable/button_secondary_background"
+            android:text="@string/monthly_report"
+            android:textColor="@color/white"
+            android:textSize="@dimen/medium_text_size"
+            android:textStyle="bold"
+            android:layout_marginBottom="@dimen/margin_medium" />
+
+        <Button
+            android:id="@+id/exportReportButton"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:background="@drawable/button_primary_background"
+            android:text="@string/export_report"
+            android:textColor="@color/white"
+            android:textSize="@dimen/medium_text_size"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</RelativeLayout>

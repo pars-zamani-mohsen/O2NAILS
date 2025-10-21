@@ -1,0 +1,317 @@
+package com.o2nails.v11.ui.user;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.os.Bundle;
+import android.provider.MediaStore;
+import android.view.View;
+import android.widget.Button;
+import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.Toast;
+import android.animation.ObjectAnimator;
+import android.animation.AnimatorSet;
+import android.animation.Animator;
+import android.view.animation.DecelerateInterpolator;
+
+import com.o2nails.v11.R;
+import com.o2nails.v11.utils.AppConstants;
+import com.o2nails.v11.utils.PreferenceManager;
+import com.o2nails.v11.adapters.ImageGridAdapter;
+import com.o2nails.v11.models.ImageItem;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+
+public class ImageSelectionActivity extends Activity {
+
+    private GridView imageGridView;
+    private ImageView previewImageView;
+    private Button galleryButton;
+    private Button cameraButton;
+    private Button nextButton;
+    private Button backButton;
+
+    private ImageGridAdapter imageAdapter;
+    private List<ImageItem> imageList;
+    private ImageItem selectedImage;
+    private PreferenceManager preferenceManager;
+
+    private static final int REQUEST_GALLERY = 1001;
+    private static final int REQUEST_CAMERA = 1002;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_image_selection);
+
+        preferenceManager = new PreferenceManager(this);
+        initializeViews();
+        setupImageList();
+        setupClickListeners();
+        setupAnimations();
+    }
+
+    private void initializeViews() {
+        imageGridView = findViewById(R.id.imageGridView);
+        previewImageView = findViewById(R.id.previewImageView);
+        galleryButton = findViewById(R.id.galleryButton);
+        cameraButton = findViewById(R.id.cameraButton);
+        nextButton = findViewById(R.id.nextButton);
+        backButton = findViewById(R.id.backButton);
+    }
+
+    private void setupImageList() {
+        imageList = new ArrayList<>();
+
+        // Add default nail art images from assets
+        addDefaultImages();
+
+        // Add favorite images from preferences
+        addFavoriteImages();
+
+        imageAdapter = new ImageGridAdapter(this, imageList, new ImageGridAdapter.OnImageClickListener() {
+            @Override
+            public void onImageClick(ImageItem imageItem) {
+                selectedImage = imageItem;
+                showImagePreview(imageItem);
+                nextButton.setEnabled(true);
+                animateButtonClick(nextButton);
+            }
+        });
+
+        imageGridView.setAdapter(imageAdapter);
+    }
+
+    private void addDefaultImages() {
+        // Add default nail art images (these would be in drawable or assets)
+        String[] defaultImages = {
+                "nail_art_1", "nail_art_2", "nail_art_3", "nail_art_4",
+                "nail_art_5", "nail_art_6", "nail_art_7", "nail_art_8"
+        };
+
+        for (String imageName : defaultImages) {
+            ImageItem item = new ImageItem();
+            item.setName(imageName);
+            item.setType(ImageItem.TYPE_DEFAULT);
+            item.setResourceId(getResources().getIdentifier(imageName, "drawable", getPackageName()));
+            imageList.add(item);
+        }
+    }
+
+    private void addFavoriteImages() {
+        // Load favorite images from preferences
+        String favoriteImagesJson = preferenceManager.getString(AppConstants.PREF_FAVORITE_IMAGES, "");
+        if (!favoriteImagesJson.isEmpty()) {
+            try {
+                // Simple implementation for favorite images
+                String[] favoriteImageNames = favoriteImagesJson.split(",");
+                for (String imageName : favoriteImageNames) {
+                    if (!imageName.trim().isEmpty()) {
+                        ImageItem item = new ImageItem();
+                        item.setName("محبوب: " + imageName);
+                        item.setType(ImageItem.TYPE_FAVORITE);
+                        item.setResourceId(
+                                getResources().getIdentifier(imageName.trim(), "drawable", getPackageName()));
+                        if (item.getResourceId() != 0) {
+                            imageList.add(item);
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                // Handle parsing error
+            }
+        }
+    }
+
+    private void setupClickListeners() {
+        galleryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                animateButtonClick(galleryButton);
+                openGallery();
+            }
+        });
+
+        cameraButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                animateButtonClick(cameraButton);
+                openCamera();
+            }
+        });
+
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (selectedImage != null) {
+                    animateButtonClick(nextButton);
+                    proceedToQuantitySelection();
+                } else {
+                    Toast.makeText(ImageSelectionActivity.this,
+                            getString(R.string.error_no_image_selected), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                animateButtonClick(backButton);
+                finish();
+            }
+        });
+    }
+
+    private void setupAnimations() {
+        // Initial entrance animation
+        imageGridView.setAlpha(0f);
+        previewImageView.setAlpha(0f);
+
+        ObjectAnimator gridFadeIn = ObjectAnimator.ofFloat(imageGridView, "alpha", 0f, 1f);
+        ObjectAnimator previewFadeIn = ObjectAnimator.ofFloat(previewImageView, "alpha", 0f, 1f);
+
+        gridFadeIn.setDuration(600);
+        previewFadeIn.setDuration(600);
+        previewFadeIn.setStartDelay(200);
+
+        AnimatorSet animatorSet = new AnimatorSet();
+        animatorSet.playTogether(gridFadeIn, previewFadeIn);
+        animatorSet.start();
+    }
+
+    private void animateButtonClick(Button button) {
+        ObjectAnimator scaleX = ObjectAnimator.ofFloat(button, "scaleX", 1f, 0.95f, 1f);
+        ObjectAnimator scaleY = ObjectAnimator.ofFloat(button, "scaleY", 1f, 0.95f, 1f);
+
+        AnimatorSet animatorSet = new AnimatorSet();
+        animatorSet.playTogether(scaleX, scaleY);
+        animatorSet.setDuration(150);
+        animatorSet.setInterpolator(new DecelerateInterpolator());
+        animatorSet.start();
+    }
+
+    private void showImagePreview(ImageItem imageItem) {
+        if (imageItem.getType() == ImageItem.TYPE_DEFAULT) {
+            previewImageView.setImageResource(imageItem.getResourceId());
+        } else {
+            // Load from file path
+            Bitmap bitmap = BitmapFactory.decodeFile(imageItem.getFilePath());
+            if (bitmap != null) {
+                previewImageView.setImageBitmap(bitmap);
+            }
+        }
+
+        // Animate preview appearance
+        ObjectAnimator scaleX = ObjectAnimator.ofFloat(previewImageView, "scaleX", 0.8f, 1f);
+        ObjectAnimator scaleY = ObjectAnimator.ofFloat(previewImageView, "scaleY", 0.8f, 1f);
+
+        AnimatorSet animatorSet = new AnimatorSet();
+        animatorSet.playTogether(scaleX, scaleY);
+        animatorSet.setDuration(300);
+        animatorSet.setInterpolator(new DecelerateInterpolator());
+        animatorSet.start();
+    }
+
+    private void openGallery() {
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        intent.setType("image/*");
+        startActivityForResult(intent, REQUEST_GALLERY);
+    }
+
+    private void openCamera() {
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(intent, REQUEST_CAMERA);
+        } else {
+            Toast.makeText(this, "دوربین در دسترس نیست", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void proceedToQuantitySelection() {
+        Intent intent = new Intent(this, PrintQuantityActivity.class);
+        intent.putExtra(AppConstants.BUNDLE_SELECTED_IMAGE, selectedImage);
+        startActivity(intent);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == RESULT_OK) {
+            if (requestCode == REQUEST_GALLERY && data != null) {
+                Uri imageUri = data.getData();
+                if (imageUri != null) {
+                    processSelectedImage(imageUri, ImageItem.TYPE_GALLERY);
+                }
+            } else if (requestCode == REQUEST_CAMERA && data != null) {
+                Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+                if (bitmap != null) {
+                    processCameraImage(bitmap);
+                }
+            }
+        }
+    }
+
+    private void processSelectedImage(Uri imageUri, int type) {
+        try {
+            InputStream inputStream = getContentResolver().openInputStream(imageUri);
+            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+
+            if (bitmap != null) {
+                // Save image to internal storage
+                String fileName = "selected_image_" + System.currentTimeMillis() + ".jpg";
+                File file = new File(getFilesDir(), fileName);
+                FileOutputStream fos = new FileOutputStream(file);
+                bitmap.compress(Bitmap.CompressFormat.JPEG, AppConstants.IMAGE_QUALITY, fos);
+                fos.close();
+
+                // Create image item
+                ImageItem imageItem = new ImageItem();
+                imageItem.setName("تصویر انتخاب شده");
+                imageItem.setType(type);
+                imageItem.setFilePath(file.getAbsolutePath());
+
+                selectedImage = imageItem;
+                showImagePreview(imageItem);
+                nextButton.setEnabled(true);
+
+                Toast.makeText(this, "تصویر انتخاب شد", Toast.LENGTH_SHORT).show();
+            }
+        } catch (IOException e) {
+            Toast.makeText(this, getString(R.string.error_image_load), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void processCameraImage(Bitmap bitmap) {
+        try {
+            // Save image to internal storage
+            String fileName = "camera_image_" + System.currentTimeMillis() + ".jpg";
+            File file = new File(getFilesDir(), fileName);
+            FileOutputStream fos = new FileOutputStream(file);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, AppConstants.IMAGE_QUALITY, fos);
+            fos.close();
+
+            // Create image item
+            ImageItem imageItem = new ImageItem();
+            imageItem.setName("تصویر دوربین");
+            imageItem.setType(ImageItem.TYPE_CAMERA);
+            imageItem.setFilePath(file.getAbsolutePath());
+
+            selectedImage = imageItem;
+            showImagePreview(imageItem);
+            nextButton.setEnabled(true);
+
+            Toast.makeText(this, "تصویر گرفته شد", Toast.LENGTH_SHORT).show();
+        } catch (IOException e) {
+            Toast.makeText(this, getString(R.string.error_image_load), Toast.LENGTH_SHORT).show();
+        }
+    }
+}

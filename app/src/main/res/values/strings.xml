@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Info -->
+    <string name="app_name">O2Nails</string>
+    <string name="app_title">سیستم ناخن‌سازی هوشمند</string>
+    <string name="version_info">نسخه 1.0.0</string>
+    
+    <!-- Main Screen -->
+    <string name="start_button_text">شروع</string>
+    <string name="admin_button_text">مدیر</string>
+    
+    <!-- Status Messages -->
+    <string name="printer_online">پرینتر آنلاین</string>
+    <string name="printer_offline">پرینتر آفلاین</string>
+    <string name="payment_online">پرداخت آنلاین</string>
+    <string name="payment_offline">پرداخت آفلاین</string>
+    
+    <!-- User Mode -->
+    <string name="select_image">انتخاب تصویر</string>
+    <string name="from_gallery">از گالری</string>
+    <string name="from_camera">از دوربین</string>
+    <string name="preview_image">پیش‌نمایش تصویر</string>
+    <string name="print_quantity">تعداد پرینت</string>
+    <string name="quantity">تعداد</string>
+    <string name="price_per_print">قیمت هر پرینت</string>
+    <string name="total_amount">مبلغ کل</string>
+    <string name="proceed_to_payment">ادامه به پرداخت</string>
+    <string name="payment_method">پرداخت با کارت</string>
+    <string name="card_payment">پرداخت با کارت</string>
+    <string name="processing_payment">در حال پردازش پرداخت...</string>
+    <string name="printing">در حال پرینت...</string>
+    <string name="print_complete">پرینت تکمیل شد</string>
+    <string name="thank_you">متشکریم</string>
+    <string name="new_print">پرینت جدید</string>
+    
+    <!-- Admin Mode -->
+    <string name="admin_login">ورود مدیر</string>
+    <string name="enter_password">رمز عبور را وارد کنید</string>
+    <string name="password">رمز عبور</string>
+    <string name="login">ورود</string>
+    <string name="cancel">لغو</string>
+    <string name="admin_dashboard">داشبورد مدیر</string>
+    <string name="price_settings">تنظیمات قیمت</string>
+    <string name="image_management">مدیریت تصاویر</string>
+    <string name="system_settings">تنظیمات سیستم</string>
+    <string name="reports">گزارش‌ها</string>
+    <string name="logout">خروج</string>
+    
+    <!-- Price Settings -->
+    <string name="set_print_price">تعیین قیمت پرینت</string>
+    <string name="price_in_toman">قیمت (تومان)</string>
+    <string name="save_price">ذخیره قیمت</string>
+    <string name="reset_to_default">بازنشانی به پیش‌فرض</string>
+    
+    <!-- Image Management -->
+    <string name="add_image">افزودن تصویر</string>
+    <string name="remove_image">حذف تصویر</string>
+    <string name="set_as_favorite">تنظیم به عنوان محبوب</string>
+    <string name="remove_from_favorites">حذف از محبوب‌ها</string>
+    <string name="image_preview">پیش‌نمایش تصویر</string>
+    
+    <!-- System Settings -->
+    <string name="printer_settings">تنظیمات پرینتر</string>
+    <string name="printer_type">نوع پرینتر</string>
+    <string name="printer_connection">اتصال پرینتر</string>
+    <string name="test_print">تست پرینت</string>
+    <string name="payment_settings">تنظیمات پرداخت</string>
+    <string name="pos_connection">اتصال POS</string>
+    <string name="test_payment">تست پرداخت</string>
+    <string name="backup_settings">پشتیبان‌گیری تنظیمات</string>
+    <string name="restore_settings">بازیابی تنظیمات</string>
+    
+    <!-- Reports -->
+    <string name="daily_report">گزارش روزانه</string>
+    <string name="weekly_report">گزارش هفتگی</string>
+    <string name="monthly_report">گزارش ماهانه</string>
+    <string name="total_prints">کل پرینت‌ها</string>
+    <string name="total_revenue">کل درآمد</string>
+    <string name="average_per_day">میانگین روزانه</string>
+    <string name="export_report">خروجی گزارش</string>
+    
+    <!-- Common -->
+    <string name="ok">تایید</string>
+    <string name="yes">بله</string>
+    <string name="no">خیر</string>
+    <string name="back">بازگشت</string>
+    <string name="next">بعدی</string>
+    <string name="save">ذخیره</string>
+    <string name="delete">حذف</string>
+    <string name="edit">ویرایش</string>
+    <string name="add">افزودن</string>
+    <string name="search">جستجو</string>
+    <string name="loading">در حال بارگذاری...</string>
+    <string name="error">خطا</string>
+    <string name="success">موفقیت</string>
+    <string name="warning">هشدار</string>
+    <string name="info">اطلاعات</string>
+    
+    <!-- Error Messages -->
+    <string name="error_network">خطا در اتصال به شبکه</string>
+    <string name="error_printer">خطا در اتصال به پرینتر</string>
+    <string name="error_payment">خطا در پردازش پرداخت</string>
+    <string name="error_image_load">خطا در بارگذاری تصویر</string>
+    <string name="error_invalid_password">رمز عبور اشتباه است</string>
+    <string name="error_admin_locked">دسترسی مدیر قفل شده است</string>
+    <string name="error_invalid_amount">مبلغ نامعتبر است</string>
+    <string name="error_no_image_selected">هیچ تصویری انتخاب نشده است</string>
+    <string name="error_printer_offline">پرینتر آفلاین است</string>
+    <string name="error_payment_failed">پرداخت ناموفق بود</string>
+    
+    <!-- Success Messages -->
+    <string name="success_payment">پرداخت با موفقیت انجام شد</string>
+    <string name="success_print">پرینت با موفقیت انجام شد</string>
+    <string name="success_admin_login">ورود موفقیت‌آمیز</string>
+    <string name="success_settings_saved">تنظیمات ذخیره شد</string>
+    <string name="success_image_added">تصویر افزوده شد</string>
+    <string name="success_image_removed">تصویر حذف شد</string>
+    <string name="success_backup_created">پشتیبان ایجاد شد</string>
+    <string name="success_settings_restored">تنظیمات بازیابی شد</string>
+    
+    <!-- Confirmation Messages -->
+    <string name="confirm_delete_image">آیا مطمئن هستید که می‌خواهید این تصویر را حذف کنید؟</string>
+    <string name="confirm_logout">آیا مطمئن هستید که می‌خواهید از حساب مدیر خارج شوید؟</string>
+    <string name="confirm_reset_settings">آیا مطمئن هستید که می‌خواهید تنظیمات را بازنشانی کنید؟</string>
+    <string name="confirm_backup_restore">آیا مطمئن هستید که می‌خواهید تنظیمات را از پشتیبان بازیابی کنید؟</string>
+    
+    <!-- Time and Date -->
+    <string name="today">امروز</string>
+    <string name="yesterday">دیروز</string>
+    <string name="this_week">این هفته</string>
+    <string name="this_month">این ماه</string>
+    <string name="this_year">امسال</string>
+    
+    <!-- Currency -->
+    <string name="currency_symbol">تومان</string>
+    <string name="currency_format">%s تومان</string>
+    
+    <!-- Additional strings -->
+    <string name="finish">پایان</string>
+    
+</resources>

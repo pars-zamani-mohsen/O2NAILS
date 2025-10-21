@@ -5,36 +5,19 @@
     android:viewportWidth="200"
     android:viewportHeight="200">
     
-    <!-- Nail base -->
+    <!-- Background -->
     <path
-        android:fillColor="@color/nail_silver"
-        android:pathData="M50,30c0,-5.5 4.5,-10 10,-10h80c5.5,0 10,4.5 10,10v140c0,5.5 -4.5,10 -10,10H60c-5.5,0 -10,-4.5 -10,-10V30z"/>
+        android:fillColor="#FF6B9D"
+        android:pathData="M20,20 L180,20 L180,180 L20,180 Z" />
     
-    <!-- Diamond pattern -->
+    <!-- Nail shape -->
     <path
-        android:fillColor="@color/nail_gold"
-        android:pathData="M100,50l20,20l-20,20l-20,-20z"/>
+        android:fillColor="#FFFFFF"
+        android:pathData="M40,40 L160,40 L160,160 L40,160 Z" />
     
+    <!-- Simple decoration -->
     <path
-        android:fillColor="@color/nail_white"
-        android:pathData="M100,60l15,15l-15,15l-15,-15z"/>
-    
-    <path
-        android:fillColor="@color/nail_black"
-        android:pathData="M100,70l10,10l-10,10l-10,-10z"/>
-    
-    <!-- Corner decorations -->
-    <circle
-        android:fillColor="@color/nail_gold"
-        android:pathData="M70,70m-5,0a5,5 0,1 1,10 0a5,5 0,1 1,-10 0"/>
-    <circle
-        android:fillColor="@color/nail_gold"
-        android:pathData="M130,70m-5,0a5,5 0,1 1,10 0a5,5 0,1 1,-10 0"/>
-    <circle
-        android:fillColor="@color/nail_gold"
-        android:pathData="M70,130m-5,0a5,5 0,1 1,10 0a5,5 0,1 1,-10 0"/>
-    <circle
-        android:fillColor="@color/nail_gold"
-        android:pathData="M130,130m-5,0a5,5 0,1 1,10 0a5,5 0,1 1,-10 0"/>
+        android:fillColor="#FF1493"
+        android:pathData="M100,60 L120,120 L80,120 Z" />
     
 </vector>

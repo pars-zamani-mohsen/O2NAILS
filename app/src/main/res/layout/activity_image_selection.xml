@@ -1,169 +1,193 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/main_background"
-    android:padding="@dimen/margin_medium">
+    android:orientation="vertical"
+    android:background="@color/md_theme_light_background">
 
-    <!-- Header -->
+    <!-- Top App Bar -->
     <LinearLayout
-        android:id="@+id/headerLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:padding="@dimen/padding_medium">
+        android:padding="12dp"
+        android:background="@color/md_theme_light_primary"
+        android:elevation="4dp">
 
         <Button
             android:id="@+id/backButton"
-            android:layout_width="80dp"
-            android:layout_height="60dp"
-            android:background="@drawable/button_admin_selector"
-            android:text="@string/back"
-            android:textColor="@color/white"
-            android:textSize="@dimen/medium_text_size"
-            android:textStyle="bold" />
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="←"
+            android:textSize="18sp"
+            android:textColor="@color/md_theme_light_onPrimary"
+            android:background="@android:color/transparent"
+            android:minWidth="40dp"
+            android:minHeight="40dp" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/select_image"
-            android:textColor="@color/primary_text"
-            android:textSize="@dimen/large_text_size"
+            android:text="انتخاب تصویر"
+            android:textColor="@color/md_theme_light_onPrimary"
+            android:textSize="16sp"
             android:textStyle="bold"
+            android:fontFamily="sans-serif"
             android:gravity="center" />
 
         <View
-            android:layout_width="80dp"
+            android:layout_width="40dp"
             android:layout_height="1dp" />
 
     </LinearLayout>
 
     <!-- Main Content -->
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/headerLayout"
-        android:layout_above="@id/bottomLayout"
-        android:orientation="horizontal"
-        android:weightSum="3">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
 
-        <!-- Image Grid (2/3 width) -->
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="@dimen/padding_small">
+            android:padding="12dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="تصاویر موجود"
-                android:textColor="@color/primary_text"
-                android:textSize="@dimen/medium_text_size"
-                android:textStyle="bold"
-                android:layout_marginBottom="@dimen/margin_small" />
-
-            <GridView
-                android:id="@+id/imageGridView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:numColumns="3"
-                android:horizontalSpacing="@dimen/spacing_small"
-                android:verticalSpacing="@dimen/spacing_small"
-                android:stretchMode="columnWidth"
-                android:gravity="center" />
-
-        </LinearLayout>
-
-        <!-- Preview Panel (1/3 width) -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:padding="@dimen/padding_medium"
-            android:background="@color/background_secondary">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/preview_image"
-                android:textColor="@color/primary_text"
-                android:textSize="@dimen/medium_text_size"
-                android:textStyle="bold"
-                android:layout_marginBottom="@dimen/margin_small" />
-
-            <ImageView
-                android:id="@+id/previewImageView"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:scaleType="centerCrop"
-                android:background="@color/white"
-                android:src="@drawable/ic_image_placeholder" />
-
+            <!-- Image Selection Options -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="@dimen/margin_small">
+                android:orientation="vertical"
+                android:background="@color/md_theme_light_surface"
+                android:padding="12dp"
+                android:elevation="2dp"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="انتخاب تصویر"
+                    android:textColor="@color/md_theme_light_onSurface"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center"
+                    android:layout_marginBottom="12dp" />
 
                 <Button
                     android:id="@+id/galleryButton"
-                    android:layout_width="0dp"
-                    android:layout_height="60dp"
-                    android:layout_weight="1"
-                    android:layout_marginEnd="@dimen/margin_extra_small"
-                    android:background="@drawable/button_start_selector"
-                    android:text="@string/from_gallery"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/small_text_size"
-                    android:textStyle="bold" />
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="از گالری"
+                    android:textSize="14sp"
+                    android:textColor="@color/md_theme_light_onPrimary"
+                    android:fontFamily="sans-serif"
+                    android:background="@drawable/button_start_selector" />
 
                 <Button
                     android:id="@+id/cameraButton"
-                    android:layout_width="0dp"
-                    android:layout_height="60dp"
-                    android:layout_weight="1"
-                    android:layout_marginStart="@dimen/margin_extra_small"
-                    android:background="@drawable/button_start_selector"
-                    android:text="@string/from_camera"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/small_text_size"
-                    android:textStyle="bold" />
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="از دوربین"
+                    android:textSize="14sp"
+                    android:textColor="@color/md_theme_light_onPrimary"
+                    android:fontFamily="sans-serif"
+                    android:background="@drawable/button_start_selector" />
+
+            </LinearLayout>
+
+            <!-- Default Images -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/md_theme_light_surface"
+                android:padding="12dp"
+                android:elevation="2dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="تصاویر پیش‌فرض"
+                    android:textColor="@color/md_theme_light_onSurface"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center"
+                    android:layout_marginBottom="12dp" />
+
+                <GridView
+                    android:id="@+id/imageGridView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:numColumns="2"
+                    android:horizontalSpacing="8dp"
+                    android:verticalSpacing="8dp"
+                    android:stretchMode="columnWidth"
+                    android:gravity="center" />
 
             </LinearLayout>
 
         </LinearLayout>
 
+    </ScrollView>
+
+    <!-- Preview Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/md_theme_light_surfaceContainerLow"
+        android:padding="12dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="پیش‌نمایش تصویر"
+            android:textColor="@color/md_theme_light_onSurface"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:layout_marginBottom="6dp" />
+
+        <ImageView
+            android:id="@+id/previewImageView"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:scaleType="centerCrop"
+            android:background="@color/md_theme_light_surfaceContainerLow"
+            android:src="@drawable/ic_image_placeholder"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="8dp" />
+
     </LinearLayout>
 
     <!-- Bottom Navigation -->
     <LinearLayout
-        android:id="@+id/bottomLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:orientation="horizontal"
         android:gravity="center"
-        android:padding="@dimen/padding_medium">
+        android:padding="12dp"
+        android:background="@color/md_theme_light_surfaceContainerLow">
 
         <Button
             android:id="@+id/nextButton"
-            android:layout_width="200dp"
-            android:layout_height="80dp"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="بعدی"
+            android:textSize="14sp"
+            android:textColor="@color/md_theme_light_onPrimary"
+            android:fontFamily="sans-serif"
             android:background="@drawable/button_start_selector"
-            android:text="@string/next"
-            android:textColor="@color/white"
-            android:textSize="@dimen/medium_text_size"
-            android:textStyle="bold"
             android:enabled="false"
-            android:elevation="@dimen/elevation_medium" />
+            android:alpha="0.5" />
 
     </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>

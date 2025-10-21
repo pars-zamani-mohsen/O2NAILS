@@ -5,26 +5,20 @@
     android:viewportWidth="200"
     android:viewportHeight="200">
     
-    <!-- Nail base -->
+    <!-- Background -->
     <path
-        android:fillColor="@color/nail_white"
-        android:pathData="M50,30c0,-5.5 4.5,-10 10,-10h80c5.5,0 10,4.5 10,10v140c0,5.5 -4.5,10 -10,10H60c-5.5,0 -10,-4.5 -10,-10V30z"/>
+        android:fillColor="#FFC0CB"
+        android:pathData="M20,20 L180,20 L180,180 L20,180 Z" />
     
-    <!-- Rainbow pattern -->
+    <!-- Nail shape -->
     <path
-        android:fillColor="@color/nail_red"
-        android:pathData="M60,80c0,-11 9,-20 20,-20s20,9 20,20v20c0,11 -9,20 -20,20s-20,-9 -20,-20V80z"/>
+        android:fillColor="#FFFFFF"
+        android:pathData="M40,40 L160,40 L160,160 L40,160 Z" />
     
+    <!-- Simple decoration -->
     <path
-        android:fillColor="@color/nail_orange"
-        android:pathData="M65,85c0,-8 7,-15 15,-15s15,7 15,15v15c0,8 -7,15 -15,15s-15,-7 -15,-15V85z"/>
-    
-    <path
-        android:fillColor="@color/nail_yellow"
-        android:pathData="M70,90c0,-5 5,-10 10,-10s10,5 10,10v10c0,5 -5,10 -10,10s-10,-5 -10,-10V90z"/>
-    
-    <path
-        android:fillColor="@color/nail_green"
-        android:pathData="M75,95c0,-2 2,-5 5,-5s5,3 5,5v5c0,2 -2,5 -5,5s-5,-3 -5,-5V95z"/>
+        android:fillColor="#FF1493"
+        android:pathData="M60,100 L140,100"
+        android:strokeWidth="4" />
     
 </vector>

@@ -5,18 +5,19 @@
     android:viewportWidth="200"
     android:viewportHeight="200">
     
-    <!-- Nail base -->
+    <!-- Background -->
     <path
-        android:fillColor="@color/nail_red"
-        android:pathData="M50,30c0,-5.5 4.5,-10 10,-10h80c5.5,0 10,4.5 10,10v140c0,5.5 -4.5,10 -10,10H60c-5.5,0 -10,-4.5 -10,-10V30z"/>
+        android:fillColor="#FF69B4"
+        android:pathData="M20,20 L180,20 L180,180 L20,180 Z" />
     
-    <!-- Heart pattern -->
+    <!-- Nail shape -->
     <path
-        android:fillColor="@color/nail_white"
-        android:pathData="M100,60c-8,-12 -20,-8 -20,4c0,12 20,20 20,20s20,-8 20,-20c0,-12 -12,-16 -20,-4z"/>
+        android:fillColor="#FFFFFF"
+        android:pathData="M40,40 L160,40 L160,160 L40,160 Z" />
     
+    <!-- Simple decoration -->
     <path
-        android:fillColor="@color/nail_pink"
-        android:pathData="M100,70c-4,-6 -10,-4 -10,2c0,6 10,10 10,10s10,-4 10,-10c0,-6 -6,-8 -10,-2z"/>
+        android:fillColor="#FF1493"
+        android:pathData="M100,92 A8,8 0 1,1 100,108 A8,8 0 1,1 100,92 Z M100,75 A5,5 0 1,1 100,85 A5,5 0 1,1 100,75 Z M125,100 A5,5 0 1,1 125,110 A5,5 0 1,1 125,100 Z M100,125 A5,5 0 1,1 100,135 A5,5 0 1,1 100,125 Z M75,100 A5,5 0 1,1 75,110 A5,5 0 1,1 75,100 Z" />
     
 </vector>

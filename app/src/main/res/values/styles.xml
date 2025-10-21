@@ -1,16 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Base application theme -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here -->
-        <item name="colorPrimary">@color/primary</item>
-        <item name="colorPrimaryDark">@color/primary_dark</item>
-        <item name="colorAccent">@color/accent</item>
-        <item name="android:windowBackground">@color/background_primary</item>
-        <item name="android:textColorPrimary">@color/primary_text</item>
-        <item name="android:textColorSecondary">@color/secondary_text</item>
-        <item name="android:statusBarColor">@color/primary_dark</item>
-        <item name="android:navigationBarColor">@color/primary_dark</item>
+    <!-- Material Design 3 Base Theme -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Primary Colors -->
+        <item name="colorPrimary">@color/md_theme_light_primary</item>
+        <item name="colorPrimaryDark">@color/md_theme_light_primary</item>
+        <item name="colorAccent">@color/md_theme_light_secondary</item>
+        
+        <!-- Background Colors -->
+        <item name="android:windowBackground">@color/md_theme_light_background</item>
+        <item name="android:colorBackground">@color/md_theme_light_surface</item>
+        
+        <!-- Text Colors -->
+        <item name="android:textColorPrimary">@color/md_theme_light_onBackground</item>
+        <item name="android:textColorSecondary">@color/md_theme_light_onSurfaceVariant</item>
+        
+        <!-- Status Bar -->
+        <item name="android:statusBarColor">@color/md_theme_light_primary</item>
+        <item name="android:windowLightStatusBar">false</item>
+        
+        <!-- Navigation Bar -->
+        <item name="android:navigationBarColor">@color/md_theme_light_surface</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        
+        <!-- Window Features -->
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
     </style>
 
     <!-- No Action Bar Theme -->
@@ -21,143 +38,249 @@
         <item name="android:windowContentOverlay">@null</item>
     </style>
 
-    <!-- Full Screen Theme -->
-    <style name="AppTheme.FullScreen" parent="AppTheme.NoActionBar">
-        <item name="android:windowFullscreen">true</item>
-        <item name="android:windowTranslucentStatus">false</item>
-        <item name="android:windowTranslucentNavigation">false</item>
-    </style>
-
-    <!-- Button Styles -->
+    <!-- Material Design 3 Button Styles -->
     <style name="ButtonPrimary" parent="Widget.AppCompat.Button">
-        <item name="android:background">@drawable/button_primary_background</item>
-        <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">18sp</item>
+        <item name="android:background">@drawable/button_primary_md3</item>
+        <item name="android:textColor">@color/md_theme_light_onPrimary</item>
+        <item name="android:textSize">16sp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:minHeight">120dp</item>
-        <item name="android:minWidth">200dp</item>
-        <item name="android:padding">16dp</item>
-        <item name="android:elevation">4dp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:minHeight">40dp</item>
+        <item name="android:minWidth">64dp</item>
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:paddingEnd">24dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:elevation">0dp</item>
     </style>
 
     <style name="ButtonSecondary" parent="Widget.AppCompat.Button">
-        <item name="android:background">@drawable/button_secondary_background</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/button_secondary_md3</item>
+        <item name="android:textColor">@color/md_theme_light_onSecondary</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:minHeight">80dp</item>
-        <item name="android:minWidth">150dp</item>
-        <item name="android:padding">12dp</item>
-        <item name="android:elevation">2dp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:minHeight">40dp</item>
+        <item name="android:minWidth">64dp</item>
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:paddingEnd">24dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:elevation">0dp</item>
     </style>
 
-    <style name="ButtonSmall" parent="Widget.AppCompat.Button">
-        <item name="android:background">@drawable/button_small_background</item>
-        <item name="android:textColor">@color/primary_text</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:minHeight">60dp</item>
-        <item name="android:minWidth">100dp</item>
-        <item name="android:padding">8dp</item>
-        <item name="android:elevation">1dp</item>
-    </style>
-
-    <!-- Text Styles -->
-    <style name="TextLarge" parent="Widget.AppCompat.TextView">
-        <item name="android:textSize">24sp</item>
-        <item name="android:textColor">@color/primary_text</item>
+    <style name="ButtonOutlined" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/button_outlined_md3</item>
+        <item name="android:textColor">@color/md_theme_light_primary</item>
+        <item name="android:textSize">16sp</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:minHeight">40dp</item>
+        <item name="android:minWidth">64dp</item>
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:paddingEnd">24dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:elevation">0dp</item>
     </style>
 
-    <style name="TextMedium" parent="Widget.AppCompat.TextView">
-        <item name="android:textSize">18sp</item>
-        <item name="android:textColor">@color/primary_text</item>
+    <style name="ButtonText" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/button_text_md3</item>
+        <item name="android:textColor">@color/md_theme_light_primary</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:minHeight">40dp</item>
+        <item name="android:minWidth">64dp</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:elevation">0dp</item>
     </style>
 
-    <style name="TextSmall" parent="Widget.AppCompat.TextView">
+    <!-- Material Design 3 Typography -->
+    <style name="TextDisplayLarge" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">57sp</item>
+        <item name="android:textColor">@color/md_theme_light_onBackground</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+        <item name="android:lineSpacingMultiplier">1.12</item>
+    </style>
+
+    <style name="TextDisplayMedium" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">45sp</item>
+        <item name="android:textColor">@color/md_theme_light_onBackground</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+        <item name="android:lineSpacingMultiplier">1.16</item>
+    </style>
+
+    <style name="TextDisplaySmall" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">36sp</item>
+        <item name="android:textColor">@color/md_theme_light_onBackground</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+        <item name="android:lineSpacingMultiplier">1.22</item>
+    </style>
+
+    <style name="TextHeadlineLarge" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">32sp</item>
+        <item name="android:textColor">@color/md_theme_light_onBackground</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    <style name="TextHeadlineMedium" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/md_theme_light_onBackground</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+        <item name="android:lineSpacingMultiplier">1.29</item>
+    </style>
+
+    <style name="TextHeadlineSmall" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/md_theme_light_onBackground</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+        <item name="android:lineSpacingMultiplier">1.33</item>
+    </style>
+
+    <style name="TextTitleLarge" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/md_theme_light_onBackground</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+        <item name="android:lineSpacingMultiplier">1.27</item>
+    </style>
+
+    <style name="TextTitleMedium" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/md_theme_light_onBackground</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:lineSpacingExtra">0.15sp</item>
+        <item name="android:lineSpacingMultiplier">1.5</item>
+    </style>
+
+    <style name="TextTitleSmall" parent="Widget.AppCompat.TextView">
         <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@color/secondary_text</item>
+        <item name="android:textColor">@color/md_theme_light_onBackground</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:lineSpacingExtra">0.1sp</item>
+        <item name="android:lineSpacingMultiplier">1.43</item>
     </style>
 
-    <style name="TextHint" parent="Widget.AppCompat.TextView">
+    <style name="TextBodyLarge" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/md_theme_light_onBackground</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:lineSpacingExtra">0.5sp</item>
+        <item name="android:lineSpacingMultiplier">1.5</item>
+    </style>
+
+    <style name="TextBodyMedium" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/md_theme_light_onBackground</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:lineSpacingExtra">0.25sp</item>
+        <item name="android:lineSpacingMultiplier">1.43</item>
+    </style>
+
+    <style name="TextBodySmall" parent="Widget.AppCompat.TextView">
         <item name="android:textSize">12sp</item>
-        <item name="android:textColor">@color/hint_text</item>
+        <item name="android:textColor">@color/md_theme_light_onSurfaceVariant</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:lineSpacingExtra">0.4sp</item>
+        <item name="android:lineSpacingMultiplier">1.33</item>
     </style>
 
-    <!-- Card Styles -->
-    <style name="CardStyle">
+    <style name="TextLabelLarge" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/md_theme_light_onBackground</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:lineSpacingExtra">0.1sp</item>
+        <item name="android:lineSpacingMultiplier">1.43</item>
+    </style>
+
+    <style name="TextLabelMedium" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/md_theme_light_onBackground</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:lineSpacingExtra">0.5sp</item>
+        <item name="android:lineSpacingMultiplier">1.33</item>
+    </style>
+
+    <style name="TextLabelSmall" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">@color/md_theme_light_onSurfaceVariant</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:lineSpacingExtra">0.5sp</item>
+        <item name="android:lineSpacingMultiplier">1.45</item>
+    </style>
+
+    <!-- Material Design 3 Card Styles -->
+    <style name="CardStyle" parent="android:Widget">
         <item name="android:layout_margin">8dp</item>
-        <item name="android:elevation">4dp</item>
-        <item name="cardCornerRadius">8dp</item>
-        <item name="cardBackgroundColor">@color/background_primary</item>
+        <item name="android:elevation">1dp</item>
+        <item name="cardCornerRadius">12dp</item>
+        <item name="cardBackgroundColor">@color/md_theme_light_surface</item>
+        <item name="cardElevation">1dp</item>
     </style>
 
-    <style name="CardStyleLarge" parent="CardStyle">
-        <item name="android:layout_margin">16dp</item>
-        <item name="android:elevation">8dp</item>
-        <item name="cardCornerRadius">12dp</item>
+    <style name="CardStyleElevated" parent="CardStyle">
+        <item name="android:elevation">3dp</item>
+        <item name="cardElevation">3dp</item>
+    </style>
+
+    <style name="CardStyleFilled" parent="CardStyle">
+        <item name="cardBackgroundColor">@color/md_theme_light_surfaceContainerHighest</item>
+        <item name="android:elevation">0dp</item>
+        <item name="cardElevation">0dp</item>
+    </style>
+
+    <!-- Material Design 3 EditText Styles -->
+    <style name="EditTextFilled" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/edittext_filled_md3</item>
+        <item name="android:textColor">@color/md_theme_light_onSurface</item>
+        <item name="android:textColorHint">@color/md_theme_light_onSurfaceVariant</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:minHeight">56dp</item>
+    </style>
+
+    <style name="EditTextOutlined" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/edittext_outlined_md3</item>
+        <item name="android:textColor">@color/md_theme_light_onSurface</item>
+        <item name="android:textColorHint">@color/md_theme_light_onSurfaceVariant</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:minHeight">56dp</item>
     </style>
 
     <!-- Admin Theme -->
     <style name="AdminTheme" parent="AppTheme.NoActionBar">
-        <item name="colorPrimary">@color/admin_primary</item>
-        <item name="colorPrimaryDark">@color/admin_secondary</item>
-        <item name="colorAccent">@color/admin_accent</item>
-        <item name="android:windowBackground">@color/admin_background</item>
+        <item name="colorPrimary">@color/md_theme_light_tertiary</item>
+        <item name="colorPrimaryDark">@color/md_theme_light_tertiary</item>
+        <item name="colorAccent">@color/md_theme_light_tertiary</item>
+        <item name="android:windowBackground">@color/md_theme_light_tertiaryContainer</item>
     </style>
 
     <!-- User Theme -->
     <style name="UserTheme" parent="AppTheme.NoActionBar">
-        <item name="colorPrimary">@color/user_primary</item>
-        <item name="colorPrimaryDark">@color/user_secondary</item>
-        <item name="colorAccent">@color/user_accent</item>
-        <item name="android:windowBackground">@color/user_background</item>
-    </style>
-
-    <!-- Progress Bar Styles -->
-    <style name="ProgressBarStyle">
-        <item name="android:progressTint">@color/primary</item>
-        <item name="android:progressBackgroundTint">@color/border_light</item>
-        <item name="android:minHeight">8dp</item>
-    </style>
-
-    <!-- EditText Styles -->
-    <style name="EditTextStyle">
-        <item name="android:background">@drawable/edittext_background</item>
-        <item name="android:textColor">@color/primary_text</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:padding">12dp</item>
-        <item name="android:minHeight">60dp</item>
-    </style>
-
-    <!-- ImageView Styles -->
-    <style name="ImageViewStyle">
-        <item name="android:scaleType">centerCrop</item>
-        <item name="android:background">@color/border_light</item>
-    </style>
-
-    <!-- GridView Styles -->
-    <style name="GridViewStyle">
-        <item name="android:numColumns">3</item>
-        <item name="android:horizontalSpacing">8dp</item>
-        <item name="android:verticalSpacing">8dp</item>
-        <item name="android:stretchMode">columnWidth</item>
-    </style>
-
-    <!-- Status Bar Styles -->
-    <style name="StatusBarStyle" parent="AppTheme">
-        <item name="android:statusBarColor">@color/primary_dark</item>
-        <item name="android:windowLightStatusBar">false</item>
-    </style>
-
-    <!-- Animation Styles -->
-    <style name="FadeInAnimation" parent="android:Animation">
-        <item name="android:duration">300</item>
-        <item name="android:interpolator">@android:anim/accelerate_interpolator</item>
-    </style>
-
-    <style name="SlideInAnimation" parent="android:Animation">
-        <item name="android:duration">400</item>
-        <item name="android:interpolator">@android:anim/decelerate_interpolator</item>
+        <item name="colorPrimary">@color/md_theme_light_primary</item>
+        <item name="colorPrimaryDark">@color/md_theme_light_primary</item>
+        <item name="colorAccent">@color/md_theme_light_primary</item>
+        <item name="android:windowBackground">@color/md_theme_light_primaryContainer</item>
     </style>
 
 </resources>

@@ -1,65 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Material Design 3 Color System -->
+    
     <!-- Primary Colors -->
-    <color name="primary">#E91E63</color>
-    <color name="primary_dark">#C2185B</color>
-    <color name="primary_light">#F8BBD9</color>
-    <color name="accent">#FF4081</color>
+    <color name="md_theme_light_primary">#6750A4</color>
+    <color name="md_theme_light_onPrimary">#FFFFFF</color>
+    <color name="md_theme_light_primaryContainer">#EADDFF</color>
+    <color name="md_theme_light_onPrimaryContainer">#21005D</color>
     
     <!-- Secondary Colors -->
-    <color name="secondary">#9C27B0</color>
-    <color name="secondary_dark">#7B1FA2</color>
-    <color name="secondary_light">#E1BEE7</color>
+    <color name="md_theme_light_secondary">#625B71</color>
+    <color name="md_theme_light_onSecondary">#FFFFFF</color>
+    <color name="md_theme_light_secondaryContainer">#E8DEF8</color>
+    <color name="md_theme_light_onSecondaryContainer">#1D192B</color>
+    
+    <!-- Tertiary Colors -->
+    <color name="md_theme_light_tertiary">#7D5260</color>
+    <color name="md_theme_light_onTertiary">#FFFFFF</color>
+    <color name="md_theme_light_tertiaryContainer">#FFD8E4</color>
+    <color name="md_theme_light_onTertiaryContainer">#31111D</color>
+    
+    <!-- Error Colors -->
+    <color name="md_theme_light_error">#BA1A1A</color>
+    <color name="md_theme_light_errorContainer">#FFDAD6</color>
+    <color name="md_theme_light_onError">#FFFFFF</color>
+    <color name="md_theme_light_onErrorContainer">#410002</color>
     
     <!-- Background Colors -->
-    <color name="background_primary">#FFFFFF</color>
-    <color name="background_secondary">#F5F5F5</color>
-    <color name="background_dark">#212121</color>
+    <color name="md_theme_light_background">#FFFBFE</color>
+    <color name="md_theme_light_onBackground">#1C1B1F</color>
+    <color name="md_theme_light_surface">#FFFBFE</color>
+    <color name="md_theme_light_onSurface">#1C1B1F</color>
+    <color name="md_theme_light_surfaceVariant">#E7E0EC</color>
+    <color name="md_theme_light_onSurfaceVariant">#49454F</color>
+    <color name="md_theme_light_outline">#79747E</color>
+    <color name="md_theme_light_inverseOnSurface">#F4EFF4</color>
+    <color name="md_theme_light_inverseSurface">#313033</color>
+    <color name="md_theme_light_inversePrimary">#D0BCFF</color>
+    
+    <!-- Surface Container Colors -->
+    <color name="md_theme_light_surfaceContainerHighest">#F3EDF7</color>
+    <color name="md_theme_light_surfaceContainerHigh">#F7F2FA</color>
+    <color name="md_theme_light_surfaceContainer">#F3EDF7</color>
+    <color name="md_theme_light_surfaceContainerLow">#F7F2FA</color>
+    <color name="md_theme_light_surfaceContainerLowest">#FFFFFF</color>
+    <color name="md_theme_light_surfaceDim">#DDD8DD</color>
+    <color name="md_theme_light_surfaceBright">#FFFBFE</color>
+    
+    <!-- Legacy Colors for Compatibility -->
+    <color name="primary">@color/md_theme_light_primary</color>
+    <color name="primary_dark">@color/md_theme_light_primary</color>
+    <color name="primary_light">@color/md_theme_light_primaryContainer</color>
+    <color name="accent">@color/md_theme_light_secondary</color>
+    <color name="secondary">@color/md_theme_light_secondary</color>
+    <color name="secondary_dark">@color/md_theme_light_secondary</color>
+    <color name="secondary_light">@color/md_theme_light_secondaryContainer</color>
+    
+    <!-- Background Colors -->
+    <color name="background_primary">@color/md_theme_light_background</color>
+    <color name="background_secondary">@color/md_theme_light_surfaceContainerLow</color>
+    <color name="background_dark">@color/md_theme_light_inverseSurface</color>
     <color name="background_overlay">#80000000</color>
     
     <!-- Text Colors -->
-    <color name="primary_text">#212121</color>
-    <color name="secondary_text">#757575</color>
-    <color name="hint_text">#BDBDBD</color>
+    <color name="primary_text">@color/md_theme_light_onBackground</color>
+    <color name="secondary_text">@color/md_theme_light_onSurfaceVariant</color>
+    <color name="hint_text">@color/md_theme_light_outline</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     
     <!-- Button Colors -->
-    <color name="button_primary">#E91E63</color>
-    <color name="button_primary_pressed">#C2185B</color>
-    <color name="button_secondary">#9C27B0</color>
-    <color name="button_secondary_pressed">#7B1FA2</color>
+    <color name="button_primary">@color/md_theme_light_primary</color>
+    <color name="button_primary_pressed">@color/md_theme_light_primary</color>
+    <color name="button_primary_disabled">@color/md_theme_light_outline</color>
+    <color name="button_secondary">@color/md_theme_light_secondary</color>
+    <color name="button_secondary_pressed">@color/md_theme_light_secondary</color>
+    <color name="button_secondary_disabled">@color/md_theme_light_outline</color>
     <color name="button_success">#4CAF50</color>
     <color name="button_success_pressed">#388E3C</color>
     <color name="button_warning">#FF9800</color>
     <color name="button_warning_pressed">#F57C00</color>
-    <color name="button_danger">#F44336</color>
-    <color name="button_danger_pressed">#D32F2F</color>
+    <color name="button_danger">@color/md_theme_light_error</color>
+    <color name="button_danger_pressed">@color/md_theme_light_error</color>
     <color name="button_info">#2196F3</color>
     <color name="button_info_pressed">#1976D2</color>
     
     <!-- Status Colors -->
     <color name="status_success">#4CAF50</color>
     <color name="status_warning">#FF9800</color>
-    <color name="status_error">#F44336</color>
+    <color name="status_error">@color/md_theme_light_error</color>
     <color name="status_info">#2196F3</color>
     <color name="status_offline">#9E9E9E</color>
     
     <!-- Border Colors -->
-    <color name="border_light">#E0E0E0</color>
-    <color name="border_medium">#BDBDBD</color>
-    <color name="border_dark">#757575</color>
+    <color name="border_light">@color/md_theme_light_surfaceVariant</color>
+    <color name="border_medium">@color/md_theme_light_outline</color>
+    <color name="border_dark">@color/md_theme_light_onSurfaceVariant</color>
     
     <!-- Shadow Colors -->
-    <color name="button_shadow">#40000000</color>
-    <color name="card_shadow">#20000000</color>
-    <color name="elevation_shadow">#30000000</color>
-    
-    <!-- Gradient Colors -->
-    <color name="gradient_start">#E91E63</color>
-    <color name="gradient_end">#9C27B0</color>
-    <color name="gradient_light_start">#F8BBD9</color>
-    <color name="gradient_light_end">#E1BEE7</color>
+    <color name="button_shadow">#1A000000</color>
+    <color name="card_shadow">#0D000000</color>
+    <color name="elevation_shadow">#14000000</color>
     
     <!-- Transparent Colors -->
     <color name="transparent">#00000000</color>
@@ -68,30 +109,9 @@
     <color name="light_transparent_black">#40000000</color>
     <color name="light_transparent_white">#40FFFFFF</color>
     
-    <!-- Material Design Colors -->
-    <color name="material_red">#F44336</color>
-    <color name="material_pink">#E91E63</color>
-    <color name="material_purple">#9C27B0</color>
-    <color name="material_deep_purple">#673AB7</color>
-    <color name="material_indigo">#3F51B5</color>
-    <color name="material_blue">#2196F3</color>
-    <color name="material_light_blue">#03A9F4</color>
-    <color name="material_cyan">#00BCD4</color>
-    <color name="material_teal">#009688</color>
-    <color name="material_green">#4CAF50</color>
-    <color name="material_light_green">#8BC34A</color>
-    <color name="material_lime">#CDDC39</color>
-    <color name="material_yellow">#FFEB3B</color>
-    <color name="material_amber">#FFC107</color>
-    <color name="material_orange">#FF9800</color>
-    <color name="material_deep_orange">#FF5722</color>
-    <color name="material_brown">#795548</color>
-    <color name="material_grey">#9E9E9E</color>
-    <color name="material_blue_grey">#607D8B</color>
-    
-    <!-- Nail Art Specific Colors -->
-    <color name="nail_red">#E91E63</color>
-    <color name="nail_pink">#F8BBD9</color>
+    <!-- Nail Art Colors -->
+    <color name="nail_red">#F44336</color>
+    <color name="nail_pink">#E91E63</color>
     <color name="nail_purple">#9C27B0</color>
     <color name="nail_blue">#2196F3</color>
     <color name="nail_green">#4CAF50</color>
@@ -105,26 +125,26 @@
     <!-- Payment Colors -->
     <color name="payment_success">#4CAF50</color>
     <color name="payment_pending">#FF9800</color>
-    <color name="payment_failed">#F44336</color>
+    <color name="payment_failed">@color/md_theme_light_error</color>
     <color name="payment_processing">#2196F3</color>
     
     <!-- Printer Status Colors -->
     <color name="printer_online">#4CAF50</color>
-    <color name="printer_offline">#F44336</color>
+    <color name="printer_offline">@color/md_theme_light_error</color>
     <color name="printer_busy">#FF9800</color>
-    <color name="printer_error">#F44336</color>
+    <color name="printer_error">@color/md_theme_light_error</color>
     <color name="printer_ready">#4CAF50</color>
     
     <!-- Admin Mode Colors -->
-    <color name="admin_primary">#9C27B0</color>
-    <color name="admin_secondary">#7B1FA2</color>
-    <color name="admin_background">#F3E5F5</color>
-    <color name="admin_accent">#E1BEE7</color>
+    <color name="admin_primary">@color/md_theme_light_tertiary</color>
+    <color name="admin_secondary">@color/md_theme_light_tertiary</color>
+    <color name="admin_background">@color/md_theme_light_tertiaryContainer</color>
+    <color name="admin_accent">@color/md_theme_light_tertiaryContainer</color>
     
     <!-- User Mode Colors -->
-    <color name="user_primary">#E91E63</color>
-    <color name="user_secondary">#C2185B</color>
-    <color name="user_background">#FCE4EC</color>
-    <color name="user_accent">#F8BBD9</color>
+    <color name="user_primary">@color/md_theme_light_primary</color>
+    <color name="user_secondary">@color/md_theme_light_primary</color>
+    <color name="user_background">@color/md_theme_light_primaryContainer</color>
+    <color name="user_accent">@color/md_theme_light_primaryContainer</color>
     
 </resources>

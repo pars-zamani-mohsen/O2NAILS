@@ -5,22 +5,19 @@
     android:viewportWidth="200"
     android:viewportHeight="200">
     
-    <!-- Nail base -->
+    <!-- Background -->
     <path
-        android:fillColor="@color/nail_green"
-        android:pathData="M50,30c0,-5.5 4.5,-10 10,-10h80c5.5,0 10,4.5 10,10v140c0,5.5 -4.5,10 -10,10H60c-5.5,0 -10,-4.5 -10,-10V30z"/>
+        android:fillColor="#FFC0CB"
+        android:pathData="M20,20 L180,20 L180,180 L20,180 Z" />
     
-    <!-- Geometric pattern -->
+    <!-- Nail shape -->
     <path
-        android:fillColor="@color/nail_white"
-        android:pathData="M70,50l30,0l15,26l-15,26l-30,0l-15,-26z"/>
+        android:fillColor="#FFFFFF"
+        android:pathData="M40,40 L160,40 L160,160 L40,160 Z" />
     
+    <!-- Simple decoration -->
     <path
-        android:fillColor="@color/nail_black"
-        android:pathData="M85,65l20,0l10,17l-10,17l-20,0l-10,-17z"/>
-    
-    <path
-        android:fillColor="@color/nail_yellow"
-        android:pathData="M100,80l10,0l5,9l-5,9l-10,0l-5,-9z"/>
+        android:fillColor="#FF1493"
+        android:pathData="M100,50 L130,100 L100,150 L70,100 Z" />
     
 </vector>

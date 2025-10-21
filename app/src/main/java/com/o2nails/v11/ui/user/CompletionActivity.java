@@ -92,6 +92,10 @@ public class CompletionActivity extends Activity {
         finishButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Go back to main screen
+                Intent intent = new Intent(CompletionActivity.this, com.o2nails.v11.MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
                 finish();
             }
         });

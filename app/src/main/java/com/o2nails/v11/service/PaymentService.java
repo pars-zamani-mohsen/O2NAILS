@@ -75,13 +75,9 @@ public class PaymentService {
                     notifyProgress("در حال تایید پرداخت...");
                     Thread.sleep(1500);
 
-                    // Simulate success (90% success rate)
-                    if (Math.random() > 0.1) {
-                        String transactionId = "TXN_" + System.currentTimeMillis();
-                        notifySuccess(transactionId);
-                    } else {
-                        notifyFailed("خطا در پردازش کارت");
-                    }
+                    // Simulate successful payment
+                    String transactionId = "TXN_" + System.currentTimeMillis();
+                    notifySuccess(transactionId);
 
                 } catch (InterruptedException e) {
                     Log.e(TAG, "Payment process interrupted", e);

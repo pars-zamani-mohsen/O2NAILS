@@ -6,6 +6,9 @@ import android.os.Looper;
 import android.util.Log;
 
 import com.o2nails.v11.models.ImageItem;
+import com.o2nails.v11.models.CartItem;
+
+import java.util.List;
 
 public class PrinterService {
 
@@ -17,6 +20,8 @@ public class PrinterService {
         void onPrintSuccess();
 
         void onPrintFailed(String errorMessage);
+
+        void onImageChanged(ImageItem currentImage, int itemIndex, int copyIndex, int totalCopies);
     }
 
     private Context context;
@@ -47,6 +52,18 @@ public class PrinterService {
 
         // Simulate printing process
         simulatePrintProcess(imageItem, quantity);
+    }
+
+    public void printMultipleImages(List<CartItem> cartItems) {
+        if (isPrinting) {
+            return;
+        }
+
+        isPrinting = true;
+        Log.d(TAG, "Starting multi-image print job for " + cartItems.size() + " items");
+
+        // Simulate printing process for multiple images
+        simulateMultiPrintProcess(cartItems);
     }
 
     private void simulatePrintProcess(ImageItem imageItem, int quantity) {
@@ -94,6 +111,66 @@ public class PrinterService {
         }).start();
     }
 
+    private void simulateMultiPrintProcess(List<CartItem> cartItems) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    // Step 1: Initialize printer
+                    notifyProgress(5, "در حال راه‌اندازی پرینتر...");
+                    Thread.sleep(2000);
+
+                    int totalItems = 0;
+                    for (CartItem item : cartItems) {
+                        totalItems += item.getQuantity();
+                    }
+
+                    int currentProgress = 5;
+                    int itemIndex = 0;
+
+                    // Step 2: Print each cart item
+                    for (CartItem cartItem : cartItems) {
+                        ImageItem imageItem = cartItem.getImageItem();
+                        int quantity = cartItem.getQuantity();
+
+                        // Load image
+                        notifyProgress(currentProgress, "در حال بارگذاری تصویر " + (itemIndex + 1) + "...");
+                        Thread.sleep(1000);
+                        currentProgress += 5;
+
+                        // Print each copy of this image
+                        for (int i = 0; i < quantity; i++) {
+                            int progress = currentProgress + (i * 80 / totalItems);
+                            notifyProgress(progress, String.format("در حال پرینت %s - کپی %d از %d...",
+                                    imageItem.getName(), i + 1, quantity));
+
+                            // Notify image change for live display
+                            notifyImageChanged(imageItem, itemIndex, i, quantity);
+
+                            Thread.sleep(2000); // Simulate print time
+                        }
+
+                        currentProgress += (quantity * 80 / totalItems);
+                        itemIndex++;
+                    }
+
+                    // Step 3: Finalize
+                    notifyProgress(95, "در حال تکمیل پرینت...");
+                    Thread.sleep(1000);
+
+                    // Simulate success (always successful for demo)
+                    notifySuccess();
+
+                } catch (InterruptedException e) {
+                    Log.e(TAG, "Multi-print process interrupted", e);
+                    notifyFailed("پرینت متوقف شد");
+                } finally {
+                    isPrinting = false;
+                }
+            }
+        }).start();
+    }
+
     private void notifyProgress(int progress, String message) {
         if (callback != null) {
             mainHandler.post(new Runnable() {
@@ -122,6 +199,17 @@ public class PrinterService {
                 @Override
                 public void run() {
                     callback.onPrintFailed(errorMessage);
+                }
+            });
+        }
+    }
+
+    private void notifyImageChanged(ImageItem currentImage, int itemIndex, int copyIndex, int totalCopies) {
+        if (callback != null) {
+            mainHandler.post(new Runnable() {
+                @Override
+                public void run() {
+                    callback.onImageChanged(currentImage, itemIndex, copyIndex, totalCopies);
                 }
             });
         }

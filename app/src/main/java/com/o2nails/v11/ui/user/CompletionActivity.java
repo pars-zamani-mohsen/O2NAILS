@@ -12,6 +12,9 @@ import com.o2nails.v11.R;
 import com.o2nails.v11.utils.AppConstants;
 import com.o2nails.v11.utils.PreferenceManager;
 import com.o2nails.v11.models.ImageItem;
+import com.o2nails.v11.models.CartItem;
+
+import java.util.List;
 
 public class CompletionActivity extends Activity {
 
@@ -44,16 +47,35 @@ public class CompletionActivity extends Activity {
     }
 
     private void loadData() {
-        ImageItem selectedImage = (ImageItem) getIntent().getSerializableExtra(AppConstants.BUNDLE_SELECTED_IMAGE);
-        int printQuantity = getIntent().getIntExtra(AppConstants.BUNDLE_PRINT_QUANTITY, 1);
-        int totalAmount = getIntent().getIntExtra(AppConstants.BUNDLE_TOTAL_AMOUNT, 0);
-        String transactionId = getIntent().getStringExtra(AppConstants.BUNDLE_TRANSACTION_ID);
+        // Try to get cart items first (new multi-item flow)
+        List<CartItem> cartItems = (List<CartItem>) getIntent().getSerializableExtra(AppConstants.BUNDLE_CART_ITEMS);
 
-        if (selectedImage != null) {
-            displayImage(selectedImage);
+        if (cartItems != null && !cartItems.isEmpty()) {
+            // Multi-item flow
+            int totalAmount = getIntent().getIntExtra(AppConstants.BUNDLE_TOTAL_AMOUNT, 0);
+            int totalItems = getIntent().getIntExtra(AppConstants.BUNDLE_TOTAL_ITEMS, 0);
+            String transactionId = getIntent().getStringExtra(AppConstants.BUNDLE_TRANSACTION_ID);
+
+            // Use first image as preview
+            ImageItem firstImage = cartItems.get(0).getImageItem();
+            if (firstImage != null) {
+                displayImage(firstImage);
+            }
+
+            updateCompletionMessage(totalItems, totalAmount, transactionId);
+        } else {
+            // Fallback to single item flow
+            ImageItem selectedImage = (ImageItem) getIntent().getSerializableExtra(AppConstants.BUNDLE_SELECTED_IMAGE);
+            int printQuantity = getIntent().getIntExtra(AppConstants.BUNDLE_PRINT_QUANTITY, 1);
+            int totalAmount = getIntent().getIntExtra(AppConstants.BUNDLE_TOTAL_AMOUNT, 0);
+            String transactionId = getIntent().getStringExtra(AppConstants.BUNDLE_TRANSACTION_ID);
+
+            if (selectedImage != null) {
+                displayImage(selectedImage);
+            }
+
+            updateCompletionMessage(printQuantity, totalAmount, transactionId);
         }
-
-        updateCompletionMessage(printQuantity, totalAmount, transactionId);
     }
 
     private void displayImage(ImageItem selectedImage) {
@@ -102,26 +124,56 @@ public class CompletionActivity extends Activity {
     }
 
     private void saveTransactionHistory() {
-        ImageItem selectedImage = (ImageItem) getIntent().getSerializableExtra(AppConstants.BUNDLE_SELECTED_IMAGE);
-        int printQuantity = getIntent().getIntExtra(AppConstants.BUNDLE_PRINT_QUANTITY, 1);
-        int totalAmount = getIntent().getIntExtra(AppConstants.BUNDLE_TOTAL_AMOUNT, 0);
+        // Try to get cart items first (new multi-item flow)
+        List<CartItem> cartItems = (List<CartItem>) getIntent().getSerializableExtra(AppConstants.BUNDLE_CART_ITEMS);
         String transactionId = getIntent().getStringExtra(AppConstants.BUNDLE_TRANSACTION_ID);
 
-        if (selectedImage != null && transactionId != null) {
-            // Get existing transaction history
-            String existingHistory = preferenceManager.getString(AppConstants.PREF_TRANSACTION_HISTORY, "");
+        if (transactionId != null) {
+            if (cartItems != null && !cartItems.isEmpty()) {
+                // Multi-item flow - save each item separately
+                int totalAmount = getIntent().getIntExtra(AppConstants.BUNDLE_TOTAL_AMOUNT, 0);
+                int totalItems = getIntent().getIntExtra(AppConstants.BUNDLE_TOTAL_ITEMS, 0);
 
-            // Create new transaction record
-            String newTransaction = printQuantity + "," + totalAmount + "," +
-                    selectedImage.getName() + "," +
-                    System.currentTimeMillis() + "," +
-                    transactionId;
+                // Get existing transaction history
+                String existingHistory = preferenceManager.getString(AppConstants.PREF_TRANSACTION_HISTORY, "");
 
-            // Append to existing history
-            String updatedHistory = existingHistory.isEmpty() ? newTransaction : existingHistory + ";" + newTransaction;
+                // Create new transaction record for multi-item
+                String newTransaction = totalItems + "," + totalAmount + "," +
+                        "چندین تصویر" + "," +
+                        System.currentTimeMillis() + "," +
+                        transactionId;
 
-            // Save updated history
-            preferenceManager.putString(AppConstants.PREF_TRANSACTION_HISTORY, updatedHistory);
+                // Append to existing history
+                String updatedHistory = existingHistory.isEmpty() ? newTransaction
+                        : existingHistory + ";" + newTransaction;
+
+                // Save updated history
+                preferenceManager.putString(AppConstants.PREF_TRANSACTION_HISTORY, updatedHistory);
+            } else {
+                // Single item flow (fallback)
+                ImageItem selectedImage = (ImageItem) getIntent()
+                        .getSerializableExtra(AppConstants.BUNDLE_SELECTED_IMAGE);
+                int printQuantity = getIntent().getIntExtra(AppConstants.BUNDLE_PRINT_QUANTITY, 1);
+                int totalAmount = getIntent().getIntExtra(AppConstants.BUNDLE_TOTAL_AMOUNT, 0);
+
+                if (selectedImage != null) {
+                    // Get existing transaction history
+                    String existingHistory = preferenceManager.getString(AppConstants.PREF_TRANSACTION_HISTORY, "");
+
+                    // Create new transaction record
+                    String newTransaction = printQuantity + "," + totalAmount + "," +
+                            selectedImage.getName() + "," +
+                            System.currentTimeMillis() + "," +
+                            transactionId;
+
+                    // Append to existing history
+                    String updatedHistory = existingHistory.isEmpty() ? newTransaction
+                            : existingHistory + ";" + newTransaction;
+
+                    // Save updated history
+                    preferenceManager.putString(AppConstants.PREF_TRANSACTION_HISTORY, updatedHistory);
+                }
+            }
         }
     }
 }

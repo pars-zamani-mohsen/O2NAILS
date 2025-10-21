@@ -30,6 +30,8 @@ public class AppConstants {
     public static final String BUNDLE_SELECTED_IMAGE = "selected_image";
     public static final String BUNDLE_PRINT_QUANTITY = "print_quantity";
     public static final String BUNDLE_TOTAL_AMOUNT = "total_amount";
+    public static final String BUNDLE_TOTAL_ITEMS = "total_items";
+    public static final String BUNDLE_CART_ITEMS = "cart_items";
     public static final String BUNDLE_PAYMENT_SUCCESS = "payment_success";
     public static final String BUNDLE_TRANSACTION_ID = "transaction_id";
 

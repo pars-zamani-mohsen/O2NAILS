@@ -16,8 +16,12 @@ import android.view.animation.DecelerateInterpolator;
 
 import com.o2nails.v11.R;
 import com.o2nails.v11.utils.AppConstants;
+import com.o2nails.v11.utils.CartManager;
 import com.o2nails.v11.models.ImageItem;
+import com.o2nails.v11.models.CartItem;
 import com.o2nails.v11.service.PaymentService;
+
+import java.util.List;
 
 public class PaymentActivity extends Activity implements PaymentService.PaymentCallback {
 
@@ -28,9 +32,9 @@ public class PaymentActivity extends Activity implements PaymentService.PaymentC
     private Button backButton;
     private TextView statusTextView;
 
-    private ImageItem selectedImage;
-    private int printQuantity;
+    private List<CartItem> cartItems;
     private int totalAmount;
+    private int totalItems;
     private PaymentService paymentService;
     private boolean paymentInProgress = false;
 
@@ -58,33 +62,66 @@ public class PaymentActivity extends Activity implements PaymentService.PaymentC
     }
 
     private void loadData() {
-        selectedImage = (ImageItem) getIntent().getSerializableExtra(AppConstants.BUNDLE_SELECTED_IMAGE);
-        printQuantity = getIntent().getIntExtra(AppConstants.BUNDLE_PRINT_QUANTITY, 1);
-        totalAmount = getIntent().getIntExtra(AppConstants.BUNDLE_TOTAL_AMOUNT, 0);
+        // Try to get cart items first (new multi-item flow)
+        cartItems = (List<CartItem>) getIntent().getSerializableExtra(AppConstants.BUNDLE_CART_ITEMS);
 
-        if (selectedImage == null || totalAmount == 0) {
-            Toast.makeText(this, "خطا در بارگذاری اطلاعات", Toast.LENGTH_SHORT).show();
-            finish();
-            return;
+        if (cartItems != null && !cartItems.isEmpty()) {
+            // Multi-item payment flow
+            totalAmount = getIntent().getIntExtra(AppConstants.BUNDLE_TOTAL_AMOUNT, 0);
+            totalItems = getIntent().getIntExtra(AppConstants.BUNDLE_TOTAL_ITEMS, 0);
+
+            updateUI();
+        } else {
+            // Fallback to single item flow (for backward compatibility)
+            ImageItem selectedImage = (ImageItem) getIntent().getSerializableExtra(AppConstants.BUNDLE_SELECTED_IMAGE);
+            int printQuantity = getIntent().getIntExtra(AppConstants.BUNDLE_PRINT_QUANTITY, 1);
+            totalAmount = getIntent().getIntExtra(AppConstants.BUNDLE_TOTAL_AMOUNT, 0);
+
+            if (selectedImage == null || totalAmount == 0) {
+                Toast.makeText(this, "خطا در بارگذاری اطلاعات", Toast.LENGTH_SHORT).show();
+                finish();
+                return;
+            }
+
+            updateUI();
         }
-
-        updateUI();
     }
 
     private void updateUI() {
-        // Display image preview
-        if (selectedImage.getType() == ImageItem.TYPE_DEFAULT) {
-            previewImageView.setImageResource(selectedImage.getResourceId());
-        } else {
-            android.graphics.Bitmap bitmap = android.graphics.BitmapFactory.decodeFile(selectedImage.getFilePath());
-            if (bitmap != null) {
-                previewImageView.setImageBitmap(bitmap);
+        if (cartItems != null && !cartItems.isEmpty()) {
+            // Multi-item flow
+            // Display first image as preview
+            ImageItem firstImage = cartItems.get(0).getImageItem();
+            if (firstImage.getType() == ImageItem.TYPE_DEFAULT) {
+                previewImageView.setImageResource(firstImage.getResourceId());
+            } else {
+                android.graphics.Bitmap bitmap = android.graphics.BitmapFactory.decodeFile(firstImage.getFilePath());
+                if (bitmap != null) {
+                    previewImageView.setImageBitmap(bitmap);
+                }
             }
-        }
 
-        quantityTextView.setText(String.format("تعداد: %d", printQuantity));
-        totalAmountTextView.setText(String.format("مبلغ کل: %s تومان", formatPrice(totalAmount)));
-        statusTextView.setText("روش پرداخت را انتخاب کنید");
+            quantityTextView.setText(String.format("تعداد کل: %d", totalItems));
+            totalAmountTextView.setText(String.format("مبلغ کل: %s تومان", formatPrice(totalAmount)));
+            statusTextView.setText("روش پرداخت را انتخاب کنید");
+        } else {
+            // Single item flow (fallback)
+            ImageItem selectedImage = (ImageItem) getIntent().getSerializableExtra(AppConstants.BUNDLE_SELECTED_IMAGE);
+            int printQuantity = getIntent().getIntExtra(AppConstants.BUNDLE_PRINT_QUANTITY, 1);
+
+            if (selectedImage.getType() == ImageItem.TYPE_DEFAULT) {
+                previewImageView.setImageResource(selectedImage.getResourceId());
+            } else {
+                android.graphics.Bitmap bitmap = android.graphics.BitmapFactory.decodeFile(selectedImage.getFilePath());
+                if (bitmap != null) {
+                    previewImageView.setImageBitmap(bitmap);
+                }
+            }
+
+            quantityTextView.setText(String.format("تعداد: %d", printQuantity));
+            totalAmountTextView.setText(String.format("مبلغ کل: %s تومان", formatPrice(totalAmount)));
+            statusTextView.setText("روش پرداخت را انتخاب کنید");
+        }
     }
 
     private String formatPrice(int price) {
@@ -206,9 +243,21 @@ public class PaymentActivity extends Activity implements PaymentService.PaymentC
 
     private void proceedToPrinting(String transactionId) {
         Intent intent = new Intent(this, PrintingActivity.class);
-        intent.putExtra(AppConstants.BUNDLE_SELECTED_IMAGE, selectedImage);
-        intent.putExtra(AppConstants.BUNDLE_PRINT_QUANTITY, printQuantity);
-        intent.putExtra(AppConstants.BUNDLE_TOTAL_AMOUNT, totalAmount);
+
+        if (cartItems != null && !cartItems.isEmpty()) {
+            // Multi-item flow
+            intent.putExtra(AppConstants.BUNDLE_CART_ITEMS, new java.util.ArrayList<>(cartItems));
+            intent.putExtra(AppConstants.BUNDLE_TOTAL_AMOUNT, totalAmount);
+            intent.putExtra(AppConstants.BUNDLE_TOTAL_ITEMS, totalItems);
+        } else {
+            // Single item flow (fallback)
+            ImageItem selectedImage = (ImageItem) getIntent().getSerializableExtra(AppConstants.BUNDLE_SELECTED_IMAGE);
+            int printQuantity = getIntent().getIntExtra(AppConstants.BUNDLE_PRINT_QUANTITY, 1);
+            intent.putExtra(AppConstants.BUNDLE_SELECTED_IMAGE, selectedImage);
+            intent.putExtra(AppConstants.BUNDLE_PRINT_QUANTITY, printQuantity);
+            intent.putExtra(AppConstants.BUNDLE_TOTAL_AMOUNT, totalAmount);
+        }
+
         intent.putExtra(AppConstants.BUNDLE_TRANSACTION_ID, transactionId);
         intent.putExtra(AppConstants.BUNDLE_PAYMENT_SUCCESS, true);
         startActivity(intent);

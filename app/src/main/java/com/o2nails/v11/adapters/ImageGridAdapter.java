@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.o2nails.v11.R;
 import com.o2nails.v11.models.ImageItem;
+import com.o2nails.v11.utils.CartManager;
 
 import java.util.List;
 
@@ -21,6 +22,7 @@ public class ImageGridAdapter extends BaseAdapter {
     private List<ImageItem> imageList;
     private OnImageClickListener clickListener;
     private LayoutInflater inflater;
+    private CartManager cartManager;
 
     public interface OnImageClickListener {
         void onImageClick(ImageItem imageItem);
@@ -31,6 +33,7 @@ public class ImageGridAdapter extends BaseAdapter {
         this.imageList = imageList;
         this.clickListener = clickListener;
         this.inflater = LayoutInflater.from(context);
+        this.cartManager = CartManager.getInstance();
     }
 
     @Override
@@ -59,6 +62,8 @@ public class ImageGridAdapter extends BaseAdapter {
             holder.nameTextView = convertView.findViewById(R.id.nameTextView);
             holder.typeTextView = convertView.findViewById(R.id.typeTextView);
             holder.favoriteIcon = convertView.findViewById(R.id.favoriteIcon);
+            holder.selectionOverlay = convertView.findViewById(R.id.selectionOverlay);
+            holder.quantityBadge = convertView.findViewById(R.id.quantityBadge);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
@@ -88,6 +93,19 @@ public class ImageGridAdapter extends BaseAdapter {
         // Set favorite icon visibility
         holder.favoriteIcon.setVisibility(imageItem.isFavorite() ? View.VISIBLE : View.GONE);
 
+        // Set selection state
+        boolean isInCart = cartManager.containsItem(imageItem);
+        int quantity = cartManager.getItemQuantity(imageItem);
+
+        if (isInCart) {
+            holder.selectionOverlay.setVisibility(View.VISIBLE);
+            holder.quantityBadge.setVisibility(View.VISIBLE);
+            holder.quantityBadge.setText(String.valueOf(quantity));
+        } else {
+            holder.selectionOverlay.setVisibility(View.GONE);
+            holder.quantityBadge.setVisibility(View.GONE);
+        }
+
         // Set click listener
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,5 +124,7 @@ public class ImageGridAdapter extends BaseAdapter {
         TextView nameTextView;
         TextView typeTextView;
         ImageView favoriteIcon;
+        View selectionOverlay;
+        TextView quantityBadge;
     }
 }

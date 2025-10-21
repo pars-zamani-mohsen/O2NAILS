@@ -20,6 +20,7 @@ import android.view.animation.DecelerateInterpolator;
 import com.o2nails.v11.R;
 import com.o2nails.v11.utils.AppConstants;
 import com.o2nails.v11.utils.PreferenceManager;
+import com.o2nails.v11.utils.CartManager;
 import com.o2nails.v11.adapters.ImageGridAdapter;
 import com.o2nails.v11.models.ImageItem;
 
@@ -43,6 +44,7 @@ public class ImageSelectionActivity extends Activity {
     private List<ImageItem> imageList;
     private ImageItem selectedImage;
     private PreferenceManager preferenceManager;
+    private CartManager cartManager;
 
     private static final int REQUEST_GALLERY = 1001;
     private static final int REQUEST_CAMERA = 1002;
@@ -53,10 +55,25 @@ public class ImageSelectionActivity extends Activity {
         setContentView(R.layout.activity_image_selection);
 
         preferenceManager = new PreferenceManager(this);
+        cartManager = CartManager.getInstance();
+        cartManager.setContext(this);
         initializeViews();
         setupImageList();
         setupClickListeners();
         setupAnimations();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Refresh adapter when returning to this activity
+        if (imageAdapter != null) {
+            imageAdapter.notifyDataSetChanged();
+        }
+        // Update next button state
+        if (nextButton != null) {
+            nextButton.setEnabled(!cartManager.isEmpty());
+        }
     }
 
     private void initializeViews() {
@@ -80,10 +97,22 @@ public class ImageSelectionActivity extends Activity {
         imageAdapter = new ImageGridAdapter(this, imageList, new ImageGridAdapter.OnImageClickListener() {
             @Override
             public void onImageClick(ImageItem imageItem) {
+                // Add to cart with default quantity of 1
+                cartManager.addToCart(imageItem, 1);
+
+                // Update preview to show the last selected image
                 selectedImage = imageItem;
                 showImagePreview(imageItem);
-                nextButton.setEnabled(true);
-                animateButtonClick(nextButton);
+
+                // Enable next button if cart is not empty
+                nextButton.setEnabled(!cartManager.isEmpty());
+
+                // Refresh the adapter to show selection state
+                imageAdapter.notifyDataSetChanged();
+
+                // Show feedback
+                Toast.makeText(ImageSelectionActivity.this,
+                        "تصویر به سبد خرید اضافه شد", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -151,12 +180,12 @@ public class ImageSelectionActivity extends Activity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (selectedImage != null) {
+                if (!cartManager.isEmpty()) {
                     animateButtonClick(nextButton);
-                    proceedToQuantitySelection();
+                    proceedToCartManagement();
                 } else {
                     Toast.makeText(ImageSelectionActivity.this,
-                            getString(R.string.error_no_image_selected), Toast.LENGTH_SHORT).show();
+                            "لطفاً حداقل یک تصویر انتخاب کنید", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -235,9 +264,10 @@ public class ImageSelectionActivity extends Activity {
         }
     }
 
-    private void proceedToQuantitySelection() {
-        Intent intent = new Intent(this, PrintQuantityActivity.class);
-        intent.putExtra(AppConstants.BUNDLE_SELECTED_IMAGE, selectedImage);
+    private void proceedToCartManagement() {
+        // For now, we'll create a new CartManagementActivity
+        // But first, let's create a simple cart summary and go to quantity selection
+        Intent intent = new Intent(this, CartManagementActivity.class);
         startActivity(intent);
     }
 
@@ -279,11 +309,17 @@ public class ImageSelectionActivity extends Activity {
                 imageItem.setType(type);
                 imageItem.setFilePath(file.getAbsolutePath());
 
+                // Add to cart
+                cartManager.addToCart(imageItem, 1);
+
                 selectedImage = imageItem;
                 showImagePreview(imageItem);
-                nextButton.setEnabled(true);
+                nextButton.setEnabled(!cartManager.isEmpty());
 
-                Toast.makeText(this, "تصویر انتخاب شد", Toast.LENGTH_SHORT).show();
+                // Refresh adapter
+                imageAdapter.notifyDataSetChanged();
+
+                Toast.makeText(this, "تصویر به سبد خرید اضافه شد", Toast.LENGTH_SHORT).show();
             }
         } catch (IOException e) {
             Toast.makeText(this, getString(R.string.error_image_load), Toast.LENGTH_SHORT).show();
@@ -305,11 +341,17 @@ public class ImageSelectionActivity extends Activity {
             imageItem.setType(ImageItem.TYPE_CAMERA);
             imageItem.setFilePath(file.getAbsolutePath());
 
+            // Add to cart
+            cartManager.addToCart(imageItem, 1);
+
             selectedImage = imageItem;
             showImagePreview(imageItem);
-            nextButton.setEnabled(true);
+            nextButton.setEnabled(!cartManager.isEmpty());
 
-            Toast.makeText(this, "تصویر گرفته شد", Toast.LENGTH_SHORT).show();
+            // Refresh adapter
+            imageAdapter.notifyDataSetChanged();
+
+            Toast.makeText(this, "تصویر به سبد خرید اضافه شد", Toast.LENGTH_SHORT).show();
         } catch (IOException e) {
             Toast.makeText(this, getString(R.string.error_image_load), Toast.LENGTH_SHORT).show();
         }

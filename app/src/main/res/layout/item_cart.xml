@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/spacing_2"
+    style="@style/CardStyle">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/spacing_3"
+        android:gravity="center_vertical">
+
+        <!-- Image -->
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:scaleType="centerCrop"
+            android:background="@color/md_theme_light_surfaceContainerLow"
+            android:src="@drawable/ic_image_placeholder"
+            android:layout_marginEnd="@dimen/spacing_3" />
+
+        <!-- Item Details -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/nameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="نام تصویر"
+                android:textColor="@color/md_theme_light_onSurface"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-medium"
+                android:maxLines="1"
+                android:ellipsize="end" />
+
+            <TextView
+                android:id="@+id/typeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="نوع"
+                android:textColor="@color/md_theme_light_onSurfaceVariant"
+                android:textSize="12sp"
+                android:fontFamily="sans-serif"
+                android:layout_marginTop="@dimen/spacing_1" />
+
+            <TextView
+                android:id="@+id/pricePerItemTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="قیمت هر عدد: 5,000 تومان"
+                android:textColor="@color/md_theme_light_onSurfaceVariant"
+                android:textSize="12sp"
+                android:fontFamily="sans-serif" />
+
+            <TextView
+                android:id="@+id/totalPriceTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="مجموع: 5,000 تومان"
+                android:textColor="@color/md_theme_light_primary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-medium"
+                android:layout_marginTop="@dimen/spacing_1" />
+
+        </LinearLayout>
+
+        <!-- Quantity Controls -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginStart="@dimen/spacing_2">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="تعداد"
+                android:textColor="@color/md_theme_light_onSurface"
+                android:textSize="12sp"
+                android:fontFamily="sans-serif"
+                android:layout_marginBottom="@dimen/spacing_1" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/decreaseButton"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:text="-"
+                    android:textSize="16sp"
+                    android:textColor="@color/md_theme_light_primary"
+                    android:fontFamily="sans-serif"
+                    android:background="@drawable/button_outlined_md3"
+                    android:layout_marginEnd="@dimen/spacing_1" />
+
+                <TextView
+                    android:id="@+id/quantityTextView"
+                    android:layout_width="40dp"
+                    android:layout_height="32dp"
+                    android:text="1"
+                    android:textColor="@color/md_theme_light_onSurface"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center"
+                    android:background="@color/md_theme_light_surfaceContainerLow"
+                    android:layout_marginHorizontal="@dimen/spacing_1" />
+
+                <Button
+                    android:id="@+id/increaseButton"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:text="+"
+                    android:textSize="16sp"
+                    android:textColor="@color/md_theme_light_onPrimary"
+                    android:fontFamily="sans-serif"
+                    android:background="@drawable/button_primary_md3"
+                    android:layout_marginStart="@dimen/spacing_1" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/removeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="حذف"
+                android:textSize="10sp"
+                android:textColor="@color/md_theme_light_error"
+                android:fontFamily="sans-serif"
+                android:background="@android:color/transparent"
+                android:layout_marginTop="@dimen/spacing_1" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

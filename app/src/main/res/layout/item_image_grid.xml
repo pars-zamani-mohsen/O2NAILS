@@ -15,6 +15,32 @@
         android:background="@color/white"
         android:src="@drawable/ic_image_placeholder" />
 
+    <!-- Selection Overlay -->
+    <View
+        android:id="@+id/selectionOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_above="@id/infoLayout"
+        android:background="@color/md_theme_light_primary"
+        android:alpha="0.3"
+        android:visibility="gone" />
+
+    <!-- Quantity Badge -->
+    <TextView
+        android:id="@+id/quantityBadge"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="@dimen/margin_extra_small"
+        android:layout_marginStart="@dimen/margin_extra_small"
+        android:background="@drawable/button_primary_md3"
+        android:textColor="@color/md_theme_light_onPrimary"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:visibility="gone" />
+
     <LinearLayout
         android:id="@+id/infoLayout"
         android:layout_width="match_parent"

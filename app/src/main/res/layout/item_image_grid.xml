@@ -9,11 +9,11 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         android:layout_above="@id/infoLayout"
         android:scaleType="centerCrop"
         android:background="@color/white"
-        android:src="@drawable/ic_image_placeholder" />
+        android:adjustViewBounds="true" />
 
     <!-- Selection Overlay -->
     <View

@@ -48,7 +48,68 @@
 
         </LinearLayout>
 
-        <!-- Main Content Card -->
+        <!-- Add Image Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_large"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="@color/md_theme_light_primaryContainer">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/padding_large">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="افزودن تصویر جدید"
+                    android:textColor="@color/md_theme_light_onPrimaryContainer"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/margin_medium" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <Button
+                        android:id="@+id/addFromGalleryButton"
+                        android:layout_width="0dp"
+                        android:layout_height="56dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="@dimen/margin_small"
+                        style="@style/ButtonPrimary"
+                        android:text="از گالری"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/addFromCameraButton"
+                        android:layout_width="0dp"
+                        android:layout_height="56dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="@dimen/margin_small"
+                        style="@style/ButtonSecondary"
+                        android:text="از دوربین"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Image List Card -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -61,43 +122,37 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="@dimen/padding_large"
-                android:gravity="center">
-
-                <!-- Icon Placeholder -->
-                <View
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_marginBottom="@dimen/margin_medium"
-                    android:background="@drawable/ic_image_placeholder"
-                    android:backgroundTint="@color/md_theme_light_primary" />
+                android:padding="@dimen/padding_large">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/image_management"
+                    android:text="تصاویر موجود"
                     android:textColor="@color/md_theme_light_onSurface"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"
-                    android:layout_marginBottom="@dimen/margin_small" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="این بخش در حال توسعه است"
-                    android:textColor="@color/md_theme_light_onSurfaceVariant"
-                    android:textSize="16sp"
-                    android:gravity="center"
+                    android:layout_gravity="center"
                     android:layout_marginBottom="@dimen/margin_medium" />
 
                 <TextView
+                    android:id="@+id/imageCountTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="قابلیت‌های آینده:\n• آپلود تصاویر جدید\n• حذف تصاویر موجود\n• ویرایش تصاویر\n• مدیریت دسته‌بندی‌ها"
+                    android:text="تعداد تصاویر: 8"
                     android:textColor="@color/md_theme_light_onSurfaceVariant"
                     android:textSize="14sp"
-                    android:gravity="center"
-                    android:lineSpacingExtra="4dp" />
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/margin_medium" />
+
+                <GridView
+                    android:id="@+id/imageGridView"
+                    android:layout_width="match_parent"
+                    android:layout_height="400dp"
+                    android:numColumns="3"
+                    android:horizontalSpacing="@dimen/margin_small"
+                    android:verticalSpacing="@dimen/margin_small"
+                    android:stretchMode="columnWidth"
+                    android:gravity="center" />
 
             </LinearLayout>
 

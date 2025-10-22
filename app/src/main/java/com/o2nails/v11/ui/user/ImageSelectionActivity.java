@@ -17,6 +17,8 @@ import android.animation.AnimatorSet;
 import android.animation.Animator;
 import android.view.animation.DecelerateInterpolator;
 
+import java.io.File;
+
 import com.o2nails.v11.R;
 import com.o2nails.v11.utils.AppConstants;
 import com.o2nails.v11.utils.PreferenceManager;
@@ -66,6 +68,8 @@ public class ImageSelectionActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
+        // Reload custom images in case new ones were added
+        reloadCustomImages();
         // Refresh adapter when returning to this activity
         if (imageAdapter != null) {
             imageAdapter.notifyDataSetChanged();
@@ -74,6 +78,14 @@ public class ImageSelectionActivity extends Activity {
         if (nextButton != null) {
             nextButton.setEnabled(!cartManager.isEmpty());
         }
+    }
+
+    private void reloadCustomImages() {
+        // Remove existing custom images from list
+        imageList.removeIf(item -> item.getType() == ImageItem.TYPE_GALLERY);
+
+        // Reload custom images
+        loadCustomImages();
     }
 
     private void initializeViews() {
@@ -120,18 +132,72 @@ public class ImageSelectionActivity extends Activity {
     }
 
     private void addDefaultImages() {
-        // Add default nail art images (these would be in drawable or assets)
-        String[] defaultImages = {
-                "nail_art_1", "nail_art_2", "nail_art_3", "nail_art_4",
-                "nail_art_5", "nail_art_6", "nail_art_7", "nail_art_8"
+        // Add default nail art images using direct resource IDs
+        int[] defaultImageIds = {
+                R.drawable.test_image, R.drawable.nail_art_1, R.drawable.nail_art_2, R.drawable.nail_art_3,
+                R.drawable.nail_art_4, R.drawable.nail_art_5, R.drawable.nail_art_6, R.drawable.nail_art_7
         };
 
-        for (String imageName : defaultImages) {
+        String[] defaultImageNames = {
+                "test_image", "nail_art_1", "nail_art_2", "nail_art_3",
+                "nail_art_4", "nail_art_5", "nail_art_6", "nail_art_7"
+        };
+
+        for (int i = 0; i < defaultImageIds.length; i++) {
             ImageItem item = new ImageItem();
-            item.setName(imageName);
+            item.setName(defaultImageNames[i]);
             item.setType(ImageItem.TYPE_DEFAULT);
-            item.setResourceId(getResources().getIdentifier(imageName, "drawable", getPackageName()));
+            item.setResourceId(defaultImageIds[i]);
             imageList.add(item);
+        }
+
+        // Load custom images from admin management
+        loadCustomImages();
+    }
+
+    private void loadCustomImages() {
+        // Load custom images from preferences first
+        String customImagePaths = preferenceManager.getString("custom_image_paths", "");
+
+        if (!customImagePaths.isEmpty()) {
+            String[] paths = customImagePaths.split(",");
+            for (String path : paths) {
+                File file = new File(path);
+                if (file.exists()) {
+                    ImageItem item = new ImageItem();
+                    item.setName("تصویر سفارشی");
+                    item.setType(ImageItem.TYPE_GALLERY);
+                    item.setFilePath(file.getAbsolutePath());
+                    imageList.add(item);
+                }
+            }
+        }
+
+        // Also check files directory for any additional images
+        File filesDir = getFilesDir();
+        File[] files = filesDir.listFiles();
+
+        if (files != null) {
+            for (File file : files) {
+                if (file.getName().startsWith("custom_image_") && file.getName().endsWith(".jpg")) {
+                    // Check if already loaded from preferences
+                    boolean alreadyLoaded = false;
+                    for (ImageItem item : imageList) {
+                        if (item.getFilePath() != null && item.getFilePath().equals(file.getAbsolutePath())) {
+                            alreadyLoaded = true;
+                            break;
+                        }
+                    }
+
+                    if (!alreadyLoaded) {
+                        ImageItem item = new ImageItem();
+                        item.setName("تصویر سفارشی");
+                        item.setType(ImageItem.TYPE_GALLERY);
+                        item.setFilePath(file.getAbsolutePath());
+                        imageList.add(item);
+                    }
+                }
+            }
         }
     }
 

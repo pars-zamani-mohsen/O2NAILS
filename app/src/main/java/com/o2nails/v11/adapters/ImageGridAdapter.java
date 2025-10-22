@@ -73,7 +73,26 @@ public class ImageGridAdapter extends BaseAdapter {
 
         // Set image
         if (imageItem.getType() == ImageItem.TYPE_DEFAULT) {
-            holder.imageView.setImageResource(imageItem.getResourceId());
+            int resourceId = imageItem.getResourceId();
+            android.util.Log.d("ImageGridAdapter",
+                    "Setting image for: " + imageItem.getName() + ", Resource ID: " + resourceId);
+
+            if (resourceId != 0) {
+                try {
+                    // Clear any previous image
+                    holder.imageView.setImageDrawable(null);
+                    // Set the new image
+                    holder.imageView.setImageResource(resourceId);
+                    android.util.Log.d("ImageGridAdapter", "Image set successfully for: " + imageItem.getName());
+                } catch (Exception e) {
+                    android.util.Log.e("ImageGridAdapter", "Error setting image: " + e.getMessage());
+                    holder.imageView.setImageResource(R.drawable.ic_image_placeholder);
+                }
+            } else {
+                // Fallback to placeholder if resource not found
+                holder.imageView.setImageResource(R.drawable.ic_image_placeholder);
+                android.util.Log.e("ImageGridAdapter", "Resource ID is 0 for: " + imageItem.getName());
+            }
         } else {
             // Load from file path
             Bitmap bitmap = BitmapFactory.decodeFile(imageItem.getFilePath());
